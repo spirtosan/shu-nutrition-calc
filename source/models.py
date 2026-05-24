@@ -99,7 +99,7 @@ def new_log_entry(meal_name, portion_g, p, f, c, kcal, dt=None, notes=""):
     }
 
 
-def _entry_macros(entry):
+def entry_macros(entry):
     """
     Return (kcal, p, f, c) for an entry.
     Handles both the current simplified format and legacy entries
@@ -167,7 +167,7 @@ def get_daily_summary(log, start_date, end_date):
         d = get_entry_date(entry)
         if d in days_data:
             days_data[d]["entries"].append(entry)
-            kcal, p, f, c = _entry_macros(entry)
+            kcal, p, f, c = entry_macros(entry)
             days_data[d]["kcal"] += kcal
             days_data[d]["p"]    += p
             days_data[d]["f"]    += f

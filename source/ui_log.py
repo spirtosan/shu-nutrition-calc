@@ -9,7 +9,7 @@
 import customtkinter as ctk
 from tkinter import messagebox, Listbox, SINGLE, END
 from datetime import datetime, date, timedelta
-from models import (load_log, save_log, new_log_entry, _entry_macros,
+from models import (load_log, save_log, new_log_entry, entry_macros,
                     get_period_entries, get_daily_summary,
                     find_missing_periods, compute_period_averages,
                     calc_portion, SaveError)
@@ -36,7 +36,7 @@ class JournalFrame(ctk.CTkFrame):
         self._period_start    = date.today()
         self._period_end      = date.today()
         self._build_ui()
-        self.refresh()
+        self._refresh_view()
 
     # ------------------------------------------------------------------
     # UI Construction
@@ -190,6 +190,9 @@ class JournalFrame(ctk.CTkFrame):
 
     def refresh(self):
         self.app.log = load_log()
+        self._refresh_view()
+
+    def _refresh_view(self):
         self._apply_period()
 
     # ------------------------------------------------------------------
@@ -307,7 +310,7 @@ class JournalFrame(ctk.CTkFrame):
             messagebox.showinfo(t("jrn.info_no_missing_title"),
                                 t("jrn.info_no_missing_msg"))
             return
-        FillMissingDialog(self, self.app, missing, on_done=self.refresh)
+        FillMissingDialog(self, self.app, missing, on_done=self._refresh_view)
 
     # ------------------------------------------------------------------
     # List population
@@ -324,7 +327,7 @@ class JournalFrame(ctk.CTkFrame):
                 dt_str = e["datetime"].replace("T", " ")[:16]
 
             nm = e.get("meal_name", "—")[:22]
-            kcal, p, f, c = _entry_macros(e)
+            kcal, p, f, c = entry_macros(e)
             pg = e.get("portion_g")
             pg_str = f"{pg:.0f}" if pg else "—"
 
@@ -378,7 +381,7 @@ class JournalFrame(ctk.CTkFrame):
                 messagebox.showerror("Save Error",
                                      f"Could not save {e.filename}:\n{e.strerror}")
                 return
-            self.refresh()
+            self._refresh_view()
 
     def _on_entry_saved(self):
         try:
@@ -387,7 +390,7 @@ class JournalFrame(ctk.CTkFrame):
             messagebox.showerror("Save Error",
                                  f"Could not save {e.filename}:\n{e.strerror}")
             return
-        self.refresh()
+        self._refresh_view()
 
     # ------------------------------------------------------------------
     # Print log
@@ -731,7 +734,7 @@ class EditEntryDialog(ctk.CTkToplevel):
 
         else:
             # Legacy entry — read-only snapshot
-            kcal, p, f, c = _entry_macros(e)
+            kcal, p, f, c = entry_macros(e)
             pg = e.get("portion_g")
             info = (f"{'Portion: ' + str(int(pg)) + 'g   ' if pg else ''}"
                     f"P:{p:.1f}  F:{f:.1f}  C:{c:.1f}  {kcal:.0f} kcal  "

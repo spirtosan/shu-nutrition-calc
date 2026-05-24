@@ -29,7 +29,7 @@ from tkinter import messagebox
 from models import (load_print_config, save_print_config,
                     calc_per_100g, calc_portion,
                     get_daily_summary, compute_period_averages,
-                    _entry_macros)
+                    entry_macros)
 from config import APP_NAME, VERSION, CREATOR
 import lang
 from lang import t
@@ -530,7 +530,7 @@ def build_log_html(log_data, cfg, dark):
                 except Exception:
                     dt_str = e["datetime"].replace("T", " ")[:16]
 
-                kcal, p, f, c = _entry_macros(e)
+                kcal, p, f, c = entry_macros(e)
                 pg     = e.get("portion_g")
                 pg_str = f"{pg:.0f}" if pg else "—"
                 nm     = escape(e.get("meal_name", "—"))
