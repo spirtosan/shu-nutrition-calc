@@ -10,7 +10,8 @@ A Windows desktop app for tracking daily nutrition and meal planning. Build meal
 - **Meal Builder** — search your food database, add ingredients by weight, and see real-time protein / fat / carb / kcal totals for the whole meal, per 100 g, and per portion
 - **Prepared food tracking** — enter the cooked weight of a meal to automatically recalculate macros after water loss
 - **Food Database Manager** — add, edit, and delete foods; macros entered per 100 g, kcal calculated automatically
-- **Recipe Book** — save any meal as a reusable recipe with a single click; use recipes as ingredients in other meals
+- **Recipe Book** — save any meal as a reusable recipe with a name, serving size, and notes; load recipes back into Meal Builder; print recipe cards
+- **Backup & Restore** — back up all personal data files (food database, meal journal, recipes) to a zip file and restore from backup in one click — found in the About screen
 - **Nutrition Journal** — log meals with date, time, portion size, and notes; browse any date range; view daily averages and totals
 - **Fill Missing Days** — bulk-fill gaps in the journal with zero entries or manual values
 - **HTML Print / Export** — generate printable reports for meals, recipes, and journal periods; light and dark themes
