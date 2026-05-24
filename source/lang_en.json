@@ -1,4 +1,4 @@
-﻿{
+{
   "_meta": {
     "language": "English",
     "code": "en",
@@ -270,7 +270,8 @@
     "v40_note": "Rebranded. Bug fixes. Help/About windows.",
     "v50_note": "kcal column. Prepared food. Journal. HTML export. Inline Help/About.",
     "v51_note": "Calorie calc fixed. Simplified journal. Active tab. Font & UX improvements.",
-    "v52_note": "Multilingual support: English, Russian, Bulgarian."
+    "v52_note": "Multilingual support: English, Russian, Bulgarian.",
+    "v53_note": "Recipe Book: save, edit, and reuse full recipes. Bug fixes and translation updates."
   },
   "rpt": {
     "_comment": "HTML report section headings and table headers",
@@ -346,7 +347,8 @@
     "detail_empty": "← Select a recipe to preview",
     "detail_notes": "Notes:",
     "confirm_edit_title": "Edit Recipe",
-    "confirm_edit_msg": "Load «{name}» into the editor?\nThe recipe will be updated when you save."
+    "confirm_edit_msg": "Load «{name}» into the editor?\nThe recipe will be updated when you save.",
+    "_comment": "Recipe Book tab — search, list, detail panel, action buttons"
   },
   "svr": {
     "title": "Save Recipe",
@@ -365,7 +367,8 @@
     "err_dup_title": "Already Exists",
     "err_dup_msg": "A recipe named «{name}» already exists. Choose a different name.",
     "info_saved_title": "Recipe Saved",
-    "info_saved_msg": "Recipe «{name}» saved to Recipe Book."
+    "info_saved_msg": "Recipe «{name}» saved to Recipe Book.",
+    "_comment": "Save Recipe dialog (called from Meal Builder)"
   },
   "edr": {
     "title": "Edit Recipe — {name}",
@@ -386,6 +389,7 @@
     "err_weight": "Enter a valid weight in grams.",
     "err_name": "Recipe name cannot be empty.",
     "warn_prep_title": "Prepared Weight",
-    "warn_prep_msg": "{msg}"
+    "warn_prep_msg": "{msg}",
+    "_comment": "Edit Recipe dialog"
   }
 }
