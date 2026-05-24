@@ -1,5 +1,5 @@
 # =============================================================================
-# models.py — Shu Nutrition Calc v5.2
+# models.py — Shu Nutrition Calc v5.3
 # Data I/O, calculations, and log entry creation.
 # =============================================================================
 

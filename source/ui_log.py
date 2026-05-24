@@ -1,5 +1,5 @@
 # =============================================================================
-# ui_log.py — Shu Nutrition Calc v5.2
+# ui_log.py — Shu Nutrition Calc v5.3
 # Journal tab: view, add, edit, delete meal log entries.
 # Period selector with daily summary and missing days handling.
 # LogEntryDialog: called from MealBuilderFrame to record a meal.

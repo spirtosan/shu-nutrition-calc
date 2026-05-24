@@ -1,5 +1,5 @@
 # =============================================================================
-# ui_print.py — Shu Nutrition Calc v5.2
+# ui_print.py — Shu Nutrition Calc v5.3
 # Print/export using HTML (opens in default browser).
 # All UI strings via t().
 # =============================================================================

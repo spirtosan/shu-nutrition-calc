@@ -1,5 +1,5 @@
 # =============================================================================
-# ui_database.py — Shu Nutrition Calc v5.2
+# ui_database.py — Shu Nutrition Calc v5.3
 # Database Manager tab: view, add, and delete food items.
 # =============================================================================
 

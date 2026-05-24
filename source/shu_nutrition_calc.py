@@ -1,5 +1,5 @@
 # =============================================================================
-# shu_nutrition_calc.py — Shu Nutrition Calc v5.2
+# shu_nutrition_calc.py — Shu Nutrition Calc v5.3
 # Main entry point. Initialises the CTk application, sidebar navigation,
 # language switcher, and all tab frames. Holds shared db and log references.
 # =============================================================================
@@ -356,6 +356,7 @@ class AboutFrame(ctk.CTkFrame):
             ("v5.0", "about.v50_note"),
             ("v5.1", "about.v51_note"),
             ("v5.2", "about.v52_note"),
+            ("v5.3", "about.v53_note"),
         ]:
             row = ctk.CTkFrame(hist, fg_color="transparent")
             row.pack(fill="x", padx=16, pady=3)

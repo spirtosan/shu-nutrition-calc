@@ -1,5 +1,5 @@
 # =============================================================================
-# ui_meal_builder.py — Shu Nutrition Calc v5.2
+# ui_meal_builder.py — Shu Nutrition Calc v5.3
 # Meal Builder tab: search, add, prepared weight, portion, journal, print,
 # save as recipe, clear. All UI strings via t().
 # =============================================================================
