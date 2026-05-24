@@ -4,6 +4,7 @@
 # save as recipe, clear. All UI strings via t().
 # =============================================================================
 
+import uuid
 import customtkinter as ctk
 from tkinter import messagebox, simpledialog, Listbox, END
 from datetime import datetime
@@ -521,6 +522,7 @@ class MealBuilderFrame(ctk.CTkFrame):
             return
 
         self.app.db.append({
+            "id": str(uuid.uuid4()),
             "name": full_name,
             "p": p_val, "f": f_val, "c": c_val,
             "kcal": round(p_val * 4 + f_val * 9 + c_val * 4, 1),
