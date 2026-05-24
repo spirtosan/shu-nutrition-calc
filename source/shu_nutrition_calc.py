@@ -10,9 +10,10 @@ try:
     _PIL_OK = True
 except ImportError:
     _PIL_OK = False
-from tkinter import messagebox
+from tkinter import messagebox, filedialog
 import webbrowser
 import os
+import zipfile
 
 from config import APP_NAME, VERSION, CREATOR, YEAR, BASE_DIR, get_help_file, LOGO_SMALL, LOGO_LARGE
 from models import load_db, load_log, load_settings, save_settings, SaveError
@@ -371,6 +372,73 @@ class AboutFrame(ctk.CTkFrame):
             ctk.CTkLabel(row, text=t(note_key),
                          font=("Segoe UI", 12),
                          text_color="#909090").pack(side="left", padx=8)
+
+        btn_row = ctk.CTkFrame(inner, fg_color="transparent")
+        btn_row.pack(pady=(14, 4))
+        ctk.CTkButton(btn_row, text=t("about.btn_backup"),
+                      command=self._backup_data,
+                      fg_color="#1a5a8a", width=180,
+                      font=("Segoe UI", 13)).pack(side="left", padx=12)
+        ctk.CTkButton(btn_row, text=t("about.btn_restore"),
+                      command=self._restore_data,
+                      fg_color="#3a5a3a", width=180,
+                      font=("Segoe UI", 13)).pack(side="left", padx=12)
+
+    def _backup_data(self):
+        from datetime import date as _date
+        folder = filedialog.askdirectory()
+        if not folder:
+            return
+        from config import BASE_DIR as _BASE_DIR
+        zip_name = f"ShuNutritionCalc_backup_{_date.today().isoformat()}.zip"
+        zip_path = os.path.join(folder, zip_name)
+        files = ["food_db.json", "meal_log.json", "recipes.json",
+                 "settings.json", "print_config.json"]
+        try:
+            with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
+                for fname in files:
+                    fpath = os.path.join(_BASE_DIR, fname)
+                    if os.path.exists(fpath):
+                        zf.write(fpath, arcname=fname)
+            messagebox.showinfo(
+                t("about.btn_backup"),
+                t("about.backup_success", path=zip_path))
+        except OSError as e:
+            messagebox.showerror(
+                t("about.btn_backup"),
+                t("about.backup_error", err=str(e)))
+
+    def _restore_data(self):
+        zip_path = filedialog.askopenfilename(
+            title=t("about.restore_title"),
+            filetypes=[("Zip backup", "*.zip")])
+        if not zip_path:
+            return
+        if not messagebox.askyesno(
+                t("about.restore_title"),
+                t("about.restore_confirm")):
+            return
+        from config import BASE_DIR as _BASE_DIR
+        try:
+            with zipfile.ZipFile(zip_path, "r") as zf:
+                zf.extractall(_BASE_DIR)
+            from models import load_db, load_log, load_recipes
+            self.app.db      = load_db()
+            self.app.log     = load_log()
+            self.app.recipes = load_recipes()
+            if hasattr(self.app, "db_frame"):
+                self.app.db_frame.refresh()
+            if hasattr(self.app, "journal_frame"):
+                self.app.journal_frame.refresh()
+            if hasattr(self.app, "recipe_frame"):
+                self.app.recipe_frame.refresh()
+            messagebox.showinfo(
+                t("about.restore_title"),
+                t("about.restore_success"))
+        except Exception as e:
+            messagebox.showerror(
+                t("about.restore_title"),
+                t("about.restore_error", err=str(e)))
 
 
 # =============================================================================

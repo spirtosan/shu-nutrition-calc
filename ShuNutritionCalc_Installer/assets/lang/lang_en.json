@@ -270,7 +270,16 @@
     "v40_note": "Rebranded. Bug fixes. Help/About windows.",
     "v50_note": "kcal column. Prepared food. Journal. HTML export. Inline Help/About.",
     "v51_note": "Calorie calc fixed. Simplified journal. Active tab. Font & UX improvements.",
-    "v52_note": "Multilingual support: English, Russian, Bulgarian."
+    "v52_note": "Multilingual support: English, Russian, Bulgarian.",
+    "v53_note": "Recipe Book: save, edit, and reuse full recipes. Bug fixes and translation updates.",
+    "btn_backup": "💾  Backup Data...",
+    "btn_restore": "📂  Restore Data...",
+    "backup_success": "Backup saved to:\n{path}",
+    "backup_error": "Backup failed:\n{err}",
+    "restore_confirm": "This will overwrite your current food_db.json, meal_log.json, and recipes.json.\nContinue?",
+    "restore_success": "Restore complete. Data reloaded.",
+    "restore_error": "Restore failed:\n{err}",
+    "restore_title": "Restore Data"
   },
   "rpt": {
     "_comment": "HTML report section headings and table headers",

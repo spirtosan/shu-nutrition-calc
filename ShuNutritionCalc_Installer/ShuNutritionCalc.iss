@@ -231,26 +231,19 @@ begin
 end;
 
 
-// ── Uninstall: ask whether to keep personal data ─────────────────────────
+// ── Uninstall: warn about data files before proceeding ───────────────────
 
 function InitializeUninstall(): Boolean;
 var
-  MsgResult: Integer;
+  msg: String;
 begin
-  Result := True;
-  MsgResult := MsgBox(
-    CustomMessage('UninstallKeepData'),
-    mbConfirmation,
-    MB_YESNO or MB_DEFBUTTON1
-  );
-
-  if MsgResult = IDNO then
-  begin
-    // User chose to delete data — remove personal files
-    DeleteFile(ExpandConstant('{app}\food_db.json'));
-    DeleteFile(ExpandConstant('{app}\meal_log.json'));
-    DeleteFile(ExpandConstant('{app}\recipes.json'));
-    DeleteFile(ExpandConstant('{app}\settings.json'));
-    DeleteFile(ExpandConstant('{app}\print_config.json'));
-  end;
+  msg := 'Before uninstalling, back up your personal data files from:' + #13#10 +
+         ExpandConstant('{localappdata}\Programs\Shu Nutrition Calc') + #13#10 + #13#10 +
+         'Files that will be deleted with the app:' + #13#10 +
+         '  food_db.json   — your food database' + #13#10 +
+         '  meal_log.json  — your meal journal' + #13#10 +
+         '  recipes.json   — your saved recipes' + #13#10 + #13#10 +
+         'Use the Backup Data button in the About screen first.' + #13#10 + #13#10 +
+         'Continue with uninstall?';
+  Result := MsgBox(msg, mbConfirmation, MB_YESNO) = IDYES;
 end;
