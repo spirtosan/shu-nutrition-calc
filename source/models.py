@@ -26,7 +26,15 @@ def load_db():
         save_db(DEFAULT_DB.copy())
         return DEFAULT_DB.copy()
     with open(DB_FILE, "r", encoding="utf-8") as f:
-        return json.load(f)
+        db = json.load(f)
+    migrated = False
+    for item in db:
+        if "id" not in item:
+            item["id"] = str(uuid.uuid4())
+            migrated = True
+    if migrated:
+        save_db(db)
+    return db
 
 
 def save_db(db):

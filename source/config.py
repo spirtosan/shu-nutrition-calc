@@ -86,7 +86,7 @@ DEFAULT_SETTINGS = {
 # Default food database (used when food_db.json is missing)
 # ---------------------------------------------------------------------------
 DEFAULT_DB = [
-    {"name": "Protein",      "p": 100, "f":   0, "c":   0, "kcal": 400},
-    {"name": "Fat",          "p":   0, "f": 100, "c":   0, "kcal": 900},
-    {"name": "Carbohydrate", "p":   0, "f":   0, "c": 100, "kcal": 400},
+    {"id": "d140424c-83c7-4bba-81a5-d37ae6eadf1e", "name": "Protein",      "p": 100, "f":   0, "c":   0, "kcal": 400},
+    {"id": "5ff5b847-6ee3-4441-ad96-255a3db43743", "name": "Fat",          "p":   0, "f": 100, "c":   0, "kcal": 900},
+    {"id": "0539ba08-7ae6-4628-a210-5b1a99545963", "name": "Carbohydrate", "p":   0, "f":   0, "c": 100, "kcal": 400},
 ]

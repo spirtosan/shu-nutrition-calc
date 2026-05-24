@@ -3,6 +3,7 @@
 # Database Manager tab: view, add, and delete food items.
 # =============================================================================
 
+import uuid
 import customtkinter as ctk
 from tkinter import messagebox, Listbox, SINGLE, END
 from models import save_db, SaveError
@@ -165,6 +166,7 @@ class DatabaseFrame(ctk.CTkFrame):
             return
 
         new_item = {
+            "id":   str(uuid.uuid4()),
             "name": n,
             "p":    p,
             "f":    f,
@@ -196,10 +198,11 @@ class DatabaseFrame(ctk.CTkFrame):
         sorted_db = sorted(self.app.db, key=lambda x: x["name"])
         item_to_del = sorted_db[sel[0]]
         name = item_to_del["name"]
+        item_id = item_to_del["id"]
 
         if messagebox.askyesno(t("db.confirm_delete_title"),
                                t("db.confirm_delete_msg", name=name)):
-            self.app.db = [i for i in self.app.db if i["name"] != name]
+            self.app.db = [i for i in self.app.db if i.get("id") != item_id]
             try:
                 save_db(self.app.db)
             except SaveError as e:
