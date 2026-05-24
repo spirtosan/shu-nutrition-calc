@@ -1,6 +1,5 @@
 [
     {
-        "id": "8bcd4602-f41f-4c98-a146-92d06aaf11ef",
         "name": "Protein",
         "p": 100,
         "f": 0,
@@ -8,7 +7,6 @@
         "kcal": 400
     },
     {
-        "id": "24574a81-d010-4bd7-bbf8-3e97a07dd8bc",
         "name": "Fat",
         "p": 0,
         "f": 100,
@@ -16,7 +14,6 @@
         "kcal": 900
     },
     {
-        "id": "4d626f62-4593-4d9e-80cb-0dc10dad7ec9",
         "name": "Carbohydrate",
         "p": 0,
         "f": 0,
@@ -24,688 +21,602 @@
         "kcal": 400
     },
     {
-        "id": "eddfafd5-dc15-40fc-b792-abdae11849bc",
-        "name": "Вода",
+        "name": "Water",
         "p": 0.0,
         "f": 0.0,
         "c": 0.0,
         "kcal": 0.0
     },
     {
-        "id": "0fdad5e9-1ac1-4b3c-9bd5-c459597445b4",
-        "name": "Сол",
+        "name": "Salt",
         "p": 0.0,
         "f": 0.0,
         "c": 0.0,
         "kcal": 0.0
     },
     {
-        "id": "3ab3c89f-4c13-4d5f-b13c-8345bc335a52",
-        "name": "Краве мляко 3.2",
+        "name": "Cow milk 3.2%",
         "p": 3.1,
         "f": 3.2,
         "c": 4.7,
         "kcal": 60.0
     },
     {
-        "id": "70de73e6-916c-4509-b6ab-f03e1a58a7ca",
-        "name": "Кашкавал Витоша",
+        "name": "Yellow cheese Vitosha",
         "p": 25.8,
         "f": 29.6,
         "c": 1.6,
         "kcal": 376.0
     },
     {
-        "id": "c963d483-0b4c-4153-a872-546418eb0bba",
-        "name": "Пъстърва обикновена",
+        "name": "Common trout",
         "p": 16.5,
         "f": 4.5,
         "c": 0.0,
         "kcal": 106.5
     },
     {
-        "id": "c82d2211-adac-4183-8b5b-26b14efb0c1c",
-        "name": "Сьомга",
+        "name": "Salmon",
         "p": 19.9,
         "f": 12.2,
         "c": 0.0,
         "kcal": 189.4
     },
     {
-        "id": "77b1be15-98e2-4bb3-b4c9-50976b3250f8",
-        "name": "Салака",
+        "name": "Baltic herring (sprat)",
         "p": 19.0,
         "f": 10.0,
         "c": 0.0,
         "kcal": 166.0
     },
     {
-        "id": "cdc1a3ea-c7de-462b-a2cd-cf674e52a3ce",
-        "name": "Скумрия",
+        "name": "Mackerel",
         "p": 19.0,
         "f": 14.0,
         "c": 0.0,
         "kcal": 202.0
     },
     {
-        "id": "583ed003-e8f3-45df-9076-0d582c3fd53a",
-        "name": "Яйце кокоше",
+        "name": "Chicken egg",
         "p": 12.0,
         "f": 11.0,
         "c": 0.7,
         "kcal": 149.8
     },
     {
-        "id": "467227c2-6294-4633-9be2-f342d337e6b2",
-        "name": "Свинско",
+        "name": "Pork",
         "p": 14.0,
         "f": 35.0,
         "c": 0.0,
         "kcal": 371.0
     },
     {
-        "id": "b9298d89-2802-4bee-8f23-c1cc35647c35",
-        "name": "Масло краве",
+        "name": "Butter",
         "p": 0.0,
         "f": 82.0,
         "c": 0.0,
         "kcal": 738.0
     },
     {
-        "id": "d03dfb9a-8f9f-4c8e-b970-9f8b75f256c0",
-        "name": "Мас",
+        "name": "Lard",
         "p": 0.0,
         "f": 100.0,
         "c": 0.0,
         "kcal": 900.0
     },
     {
-        "id": "1b300660-ae2f-49ee-b83b-57abce4499c2",
-        "name": "Масло растително",
+        "name": "Vegetable oil",
         "p": 0.0,
         "f": 100.0,
         "c": 0.0,
         "kcal": 900.0
     },
     {
-        "id": "3b90feb7-cb07-4636-bed1-61d86295e2fb",
-        "name": "Захар",
+        "name": "Sugar",
         "p": 0.0,
         "f": 0.0,
         "c": 100.0,
         "kcal": 400.0
     },
     {
-        "id": "edbaec73-7a86-420a-babb-6fd9d1ea02fd",
-        "name": "Патладжани",
+        "name": "Eggplant (aubergine)",
         "p": 1.4,
         "f": 0.2,
         "c": 4.2,
         "kcal": 24.2
     },
     {
-        "id": "15cd9cd0-b75c-48a1-9508-f1532bd60e8a",
-        "name": "Зеле бяло",
+        "name": "White cabbage",
         "p": 1.4,
         "f": 0.2,
         "c": 4.6,
         "kcal": 25.8
     },
     {
-        "id": "29b2f07a-2d74-4480-bfec-5c62ceb46802",
-        "name": "Карфиол",
+        "name": "Cauliflower",
         "p": 8.2,
         "f": 0.3,
         "c": 5.3,
         "kcal": 56.7
     },
     {
-        "id": "213189a3-f22e-453f-93fa-159b0dab5135",
-        "name": "Зеле червено",
+        "name": "Red cabbage",
         "p": 1.9,
         "f": 0.3,
         "c": 6.2,
         "kcal": 35.1
     },
     {
-        "id": "ec54e08e-0b34-4394-b14b-5aeb78a12f99",
-        "name": "Картофи пролетни",
+        "name": "Potatoes (spring/new)",
         "p": 1.9,
         "f": 0.1,
         "c": 16.9,
         "kcal": 76.1
     },
     {
-        "id": "b1717e7c-8d59-492e-8adc-4d81c378e323",
-        "name": "Картофи есенни",
+        "name": "Potatoes (autumn)",
         "p": 2.4,
         "f": 0.1,
         "c": 19.2,
         "kcal": 87.3
     },
     {
-        "id": "4ac43be1-74ae-4708-bcb3-acfefc2b528b",
-        "name": "Краставици",
+        "name": "Cucumber",
         "p": 0.6,
         "f": 0.2,
         "c": 2.3,
         "kcal": 13.4
     },
     {
-        "id": "c523f3eb-e0fc-49ba-95cf-e834f4de9faf",
-        "name": "Домати",
+        "name": "Tomatoes",
         "p": 1.0,
         "f": 0.2,
         "c": 3.7,
         "kcal": 20.6
     },
     {
-        "id": "354e44f8-eb8a-4502-abf5-7cfa61cf48fd",
-        "name": "Кромид лук стар",
+        "name": "Onion (dry)",
         "p": 1.7,
         "f": 0.3,
         "c": 10.5,
         "kcal": 51.5
     },
     {
-        "id": "687ead15-d8f0-4d7d-a19f-c14e17d080c2",
-        "name": "Чесън лук стар",
+        "name": "Garlic (dry)",
         "p": 6.3,
         "f": 0.1,
         "c": 29.1,
         "kcal": 142.5
     },
     {
-        "id": "c13255f2-2121-4b8a-9124-4266734ca1e8",
-        "name": "Моркови",
+        "name": "Carrots",
         "p": 0.8,
         "f": 0.2,
         "c": 8.0,
         "kcal": 37.0
     },
     {
-        "id": "9e2a7d11-ff26-499b-9751-0ceab48b478f",
-        "name": "Чушки пиперки Сиврия зелени",
+        "name": "Green pepper Sivria",
         "p": 1.0,
         "f": 0.3,
         "c": 4.6,
         "kcal": 25.1
     },
     {
-        "id": "199e6c7d-f626-4d8d-ab62-00197e43a977",
-        "name": "Чушки пиперки Капия зелени",
+        "name": "Green pepper Kapia",
         "p": 1.0,
         "f": 0.3,
         "c": 4.6,
         "kcal": 25.1
     },
     {
-        "id": "e6f252eb-a02a-49d8-bcb8-e15bbbf3877d",
-        "name": "Чушки пиперки червени",
+        "name": "Red bell pepper",
         "p": 1.2,
         "f": 0.5,
         "c": 5.3,
         "kcal": 30.5
     },
     {
-        "id": "44cc279a-b35a-4103-b166-3045ecee745d",
-        "name": "Чушки пиперки Камби зелени",
+        "name": "Green bell pepper Kambi",
         "p": 1.0,
         "f": 0.2,
         "c": 4.9,
         "kcal": 25.4
     },
     {
-        "id": "b3c54a4c-17d8-4c03-bfc9-57f806397063",
-        "name": "Чушки пиперки Камби червени",
+        "name": "Red bell pepper Kambi",
         "p": 1.0,
         "f": 0.02,
         "c": 4.9,
         "kcal": 23.8
     },
     {
-        "id": "816824f8-04c3-48ab-a170-bff29f5b1a9d",
-        "name": "Ряпа бяла",
+        "name": "White turnip",
         "p": 1.9,
         "f": 0.1,
         "c": 7.0,
         "kcal": 36.5
     },
     {
-        "id": "141f4840-8ec9-4f09-833b-d1d144e1f521",
-        "name": "Ряпа черна",
+        "name": "Black radish",
         "p": 1.3,
         "f": 0.1,
         "c": 6.8,
         "kcal": 33.3
     },
     {
-        "id": "e604b98d-d078-4c1f-8799-81a180b91de4",
-        "name": "Салата къдрава или маруля",
+        "name": "Lettuce",
         "p": 1.6,
         "f": 0.2,
         "c": 2.3,
         "kcal": 17.4
     },
     {
-        "id": "3fb37299-08ba-4a75-ab0d-3e429b395445",
-        "name": "Спанак",
+        "name": "Spinach",
         "p": 3.2,
         "f": 0.4,
         "c": 3.2,
         "kcal": 29.2
     },
     {
-        "id": "57d1fb49-4879-441d-9c91-7fce5bcc9653",
-        "name": "Тиквички",
+        "name": "Zucchini (courgette)",
         "p": 0.6,
         "f": 0.0,
         "c": 3.7,
         "kcal": 17.2
     },
     {
-        "id": "747a2598-12cd-433d-ab20-4346cb489371",
-        "name": "Цвекло червено",
+        "name": "Red beetroot",
         "p": 1.2,
         "f": 0.1,
         "c": 9.3,
         "kcal": 42.9
     },
     {
-        "id": "6a90a34d-da8a-43b3-8482-85e325307818",
-        "name": "Банани",
+        "name": "Banana",
         "p": 1.1,
         "f": 0.2,
         "c": 21.0,
         "kcal": 90.2
     },
     {
-        "id": "057337fe-f97e-42f7-9af9-ca1283140364",
-        "name": "Вишни",
+        "name": "Sour cherries",
         "p": 1.2,
         "f": 0.4,
         "c": 13.1,
         "kcal": 60.8
     },
     {
-        "id": "16168bc7-394b-4547-aa74-bdf0877e9af3",
-        "name": "Грейпфрут",
+        "name": "Grapefruit",
         "p": 0.7,
         "f": 0.2,
         "c": 9.8,
         "kcal": 43.8
     },
     {
-        "id": "6a253a07-5dc1-4c4e-9a63-0e701c9a0ab0",
-        "name": "Грозде",
+        "name": "Grapes",
         "p": 0.5,
         "f": 0.1,
         "c": 16.2,
         "kcal": 67.7
     },
     {
-        "id": "bc7a4433-38c0-45b8-82bf-5632a4b26ed5",
-        "name": "Диня",
+        "name": "Watermelon",
         "p": 0.4,
         "f": 0.1,
         "c": 5.9,
         "kcal": 26.1
     },
     {
-        "id": "b119777f-301b-484a-9d45-082318ea55da",
-        "name": "Дюли",
+        "name": "Quince",
         "p": 0.5,
         "f": 0.4,
         "c": 13.1,
         "kcal": 58.0
     },
     {
-        "id": "5ac11fc9-0cb0-429b-b941-204b72b33f1f",
-        "name": "Кайсии",
+        "name": "Apricots",
         "p": 0.7,
         "f": 0.2,
         "c": 11.1,
         "kcal": 49.0
     },
     {
-        "id": "382b6df8-7567-46d0-aaa5-15c02cd390a6",
-        "name": "Крушки",
+        "name": "Pears",
         "p": 0.3,
         "f": 0.4,
         "c": 14.5,
         "kcal": 62.8
     },
     {
-        "id": "01f4b023-5a1b-43fa-ab79-f45d4f200184",
-        "name": "Лимони",
+        "name": "Lemons",
         "p": 0.7,
         "f": 0.6,
         "c": 7.1,
         "kcal": 36.6
     },
     {
-        "id": "258ff0f5-e637-40ac-9657-dc2ba59d5118",
-        "name": "Мандарини",
+        "name": "Tangerines",
         "p": 0.7,
         "f": 0.3,
         "c": 10.6,
         "kcal": 47.9
     },
     {
-        "id": "387ebcab-570c-4146-8383-5688eb26e7d7",
-        "name": "Портокали",
+        "name": "Oranges",
         "p": 0.9,
         "f": 0.2,
         "c": 10.5,
         "kcal": 47.4
     },
     {
-        "id": "384cf36d-a42a-475d-b8bf-ef0f30030a86",
-        "name": "Праскови",
+        "name": "Peaches",
         "p": 0.6,
         "f": 0.1,
         "c": 11.3,
         "kcal": 48.5
     },
     {
-        "id": "79e26b45-d5b2-4c56-9df2-8b5aa225d1ff",
-        "name": "Пъпеши",
+        "name": "Melon",
         "p": 0.7,
         "f": 0.3,
         "c": 6.1,
         "kcal": 29.9
     },
     {
-        "id": "3fd318cf-2a38-40ac-87a2-cff55a8fe373",
-        "name": "Сини сливи",
+        "name": "Plums",
         "p": 0.8,
         "f": 0.2,
         "c": 18.7,
         "kcal": 79.8
     },
     {
-        "id": "318dfca5-44aa-4e19-a1bb-ec462be5d8c2",
-        "name": "Тиква",
+        "name": "Pumpkin",
         "p": 0.7,
         "f": 0.3,
         "c": 7.8,
         "kcal": 36.7
     },
     {
-        "id": "12e16ef0-a9f4-43e4-82e6-83e4176b51fc",
-        "name": "Череши",
+        "name": "Sweet cherries",
         "p": 0.8,
         "f": 0.4,
         "c": 13.5,
         "kcal": 60.8
     },
     {
-        "id": "02320b90-7e9f-4216-aa04-d1538d498818",
-        "name": "Ябълки",
+        "name": "Apples",
         "p": 0.3,
         "f": 0.3,
         "c": 14.7,
         "kcal": 62.7
     },
     {
-        "id": "5d1a820d-70b7-4328-979b-419f3ccda7ac",
-        "name": "Ягоди",
+        "name": "Strawberries",
         "p": 0.9,
         "f": 0.5,
         "c": 6.5,
         "kcal": 34.1
     },
     {
-        "id": "f5d1092b-a518-4abf-a6d4-53b81e9e5f4a",
-        "name": "Бадеми",
+        "name": "Almonds",
         "p": 5.7,
         "f": 15.0,
         "c": 57.0,
         "kcal": 385.8
     },
     {
-        "id": "48ca0047-1a75-47fc-ad63-8cecd48dd1d9",
-        "name": "Лешници",
+        "name": "Hazelnuts",
         "p": 6.2,
         "f": 13.9,
         "c": 61.8,
         "kcal": 397.1
     },
     {
-        "id": "4093ed97-2819-433f-9de0-14a1e98327b5",
-        "name": "Маслини",
+        "name": "Olives",
         "p": 1.4,
         "f": 13.9,
         "c": 2.9,
         "kcal": 142.3
     },
     {
-        "id": "a6df127a-2d34-4802-a5c0-127894934f5c",
-        "name": "Орехи",
+        "name": "Walnuts",
         "p": 14.8,
         "f": 64.0,
         "c": 13.7,
         "kcal": 690.0
     },
     {
-        "id": "02ef4c9e-feb7-4b11-8117-68a5c19a4aeb",
-        "name": "Слънчоглед",
+        "name": "Sunflower seeds",
         "p": 21.0,
         "f": 55.8,
         "c": 4.1,
         "kcal": 602.6
     },
     {
-        "id": "46f30c85-60b7-4789-a583-e5623723c981",
-        "name": "Тиквени семки",
+        "name": "Pumpkin seeds",
         "p": 32.4,
         "f": 45.0,
         "c": 12.5,
         "kcal": 584.6
     },
     {
-        "id": "5343e545-18ab-42af-99fb-a102a17436f1",
-        "name": "Фъстъци",
+        "name": "Peanuts",
         "p": 26.5,
         "f": 46.6,
         "c": 19.0,
         "kcal": 601.4
     },
     {
-        "id": "d888ca76-c729-4f5d-8e5c-487ec41e5f21",
-        "name": "Овесени ядки",
+        "name": "Oats",
         "p": 13.0,
         "f": 7.5,
         "c": 66.0,
         "kcal": 383.5
     },
     {
-        "id": "4e3a1c1a-ccd4-4e65-8f5a-73de48395e5a",
-        "name": "Ориз",
+        "name": "Rice (dry)",
         "p": 7.0,
         "f": 0.6,
         "c": 78.8,
         "kcal": 348.6
     },
     {
-        "id": "6352d867-3a23-4255-9e93-ecd6be862482",
-        "name": "Пшеница мека",
+        "name": "Wheat (soft)",
         "p": 12.1,
         "f": 1.7,
         "c": 69.1,
         "kcal": 340.1
     },
     {
-        "id": "9d699f81-44c0-40f1-a91e-b468f36d00fa",
-        "name": "Пшеница твърда",
+        "name": "Wheat (durum)",
         "p": 14.0,
         "f": 1.8,
         "c": 67.4,
         "kcal": 341.8
     },
     {
-        "id": "0d9dfaf0-e16d-4f91-a2c2-822702942e63",
-        "name": "Боб",
+        "name": "Beans (dry)",
         "p": 23.3,
         "f": 1.5,
         "c": 55.5,
         "kcal": 328.7
     },
     {
-        "id": "38c6f761-9548-4b71-b0c0-7c9fefe023d9",
-        "name": "Леща",
+        "name": "Lentils (dry)",
         "p": 23.0,
         "f": 1.0,
         "c": 57.9,
         "kcal": 332.6
     },
     {
-        "id": "37e8a2bc-562a-4402-803b-bebd3d4a63c1",
-        "name": "Соя",
+        "name": "Soybeans (dry)",
         "p": 36.9,
         "f": 20.7,
         "c": 24.9,
         "kcal": 433.5
     },
     {
-        "id": "9c261e96-37a2-4a58-adb6-9d399f043593",
-        "name": "Брашно 500",
+        "name": "Wheat flour type 500",
         "p": 10.6,
         "f": 1.1,
         "c": 73.3,
         "kcal": 345.5
     },
     {
-        "id": "983d90a2-3a0d-4dc2-a60b-026d3b3aaec3",
-        "name": "Нишесте",
+        "name": "Starch",
         "p": 0.0,
         "f": 0.0,
         "c": 100.0,
         "kcal": 400.0
     },
     {
-        "id": "832ec141-8373-48d8-b184-a6fa2777f377",
-        "name": "Макаронени изделия",
+        "name": "Pasta (dry)",
         "p": 10.8,
         "f": 1.1,
         "c": 75.0,
         "kcal": 353.1
     },
     {
-        "id": "f981d311-b3a6-44e0-abb4-0d5b18dbb1a9",
-        "name": "Мед",
+        "name": "Honey",
         "p": 0.4,
         "f": 0.0,
         "c": 78.3,
         "kcal": 314.8
     },
     {
-        "id": "b3eb91c2-e6b7-438c-bf7a-28c18e557474",
-        "name": "Нахут",
+        "name": "Chickpeas (dry)",
         "p": 8.9,
         "f": 2.6,
         "c": 27.4,
         "kcal": 168.6
     },
     {
-        "id": "eaa9af8f-50c0-46ca-8faa-1587baa83434",
-        "name": "Сусамов Тахан",
+        "name": "Tahini (sesame paste)",
         "p": 26.0,
         "f": 59.1,
         "c": 1.9,
         "kcal": 643.5
     },
     {
-        "id": "b2525d25-711e-418b-abd9-3887ea843ac3",
-        "name": "Лимонов сок",
+        "name": "Lemon juice",
         "p": 0.4,
         "f": 0.02,
         "c": 6.9,
         "kcal": 29.4
     },
     {
-        "id": "555a2819-3086-49da-943a-80f545045b92",
-        "name": "Скариди белени бланширани",
+        "name": "Shrimps peeled blanched",
         "p": 15.0,
         "f": 0.5,
         "c": 0.5,
         "kcal": 66.5
     },
     {
-        "id": "8fe6139d-8310-4fe2-91ee-256310485b11",
-        "name": "Ориз варен",
+        "name": "Rice (cooked)",
         "p": 2.4,
         "f": 0.25,
         "c": 30.0,
         "kcal": 131.8
     },
     {
-        "id": "31f7c31d-98a2-4699-934c-bca7570bd84e",
-        "name": "Майонеза домашна",
+        "name": "Mayonnaise homemade",
         "p": 2.0,
         "f": 80.0,
         "c": 3.0,
         "kcal": 740.0
     },
     {
-        "id": "77623dcc-f2a9-43de-a379-ca3224604d77",
-        "name": "Царевица варена",
+        "name": "Corn (cooked)",
         "p": 3.3,
         "f": 1.5,
         "c": 22.0,
         "kcal": 114.7
     },
     {
-        "id": "6f8cb975-293d-4b69-9b95-a75b8908dbe4",
-        "name": "Нахут варен",
+        "name": "Chickpeas (cooked)",
         "p": 8.8,
         "f": 2.6,
         "c": 27.5,
         "kcal": 168.6
     },
     {
-        "id": "bfcfbaf8-2594-4976-8eb6-2e0fb78edb2a",
-        "name": "[R] Хумус домашен",
+        "name": "[R] Hummus homemade",
         "p": 9.12,
         "f": 13.07,
         "c": 17.19,
         "kcal": 222.9
     },
     {
-        "id": "14e34db4-bd3f-4551-81ca-070d2595cb02",
-        "name": "Кайма свинска за скара",
+        "name": "Pork mince for grill",
         "p": 16.0,
         "f": 18.0,
         "c": 0.0,
         "kcal": 226.0
     },
     {
-        "id": "ae36f22d-137a-470d-bc33-5dce35fd644b",
-        "name": "Доматен сос с босилек Лидъл",
+        "name": "Tomato sauce with basil Lidl",
         "p": 1.3,
         "f": 1.2,
         "c": 6.2,
         "kcal": 40.8
     },
     {
-        "id": "9b3c7d84-43e4-42de-8cca-40eb15f6afc6",
-        "name": "Пилешко филе - гърди",
+        "name": "Chicken breast fillet",
         "p": 23.0,
         "f": 1.5,
         "c": 0.0,
         "kcal": 105.5
     },
     {
-        "id": "0537c3db-e58c-444c-9739-249d38581c37",
-        "name": "Фурми",
+        "name": "Dates",
         "p": 2.3,
         "f": 0.4,
         "c": 75.0,
         "kcal": 312.8
     },
     {
-        "id": "1a8f4156-4db5-4fee-895a-e0249caa67ca",
-        "name": "[R] Гулаш",
+        "name": "[R] Goulash",
         "p": 2.75,
         "f": 4.61,
         "c": 7.62,
