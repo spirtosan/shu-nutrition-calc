@@ -10,6 +10,7 @@ import threading
 import webbrowser
 import tempfile
 from datetime import datetime
+from html import escape
 
 _temp_files = []
 _cleanup_registered = False
@@ -30,6 +31,7 @@ from models import (load_print_config, save_print_config,
                     get_daily_summary, compute_period_averages,
                     _entry_macros)
 from config import APP_NAME, VERSION, CREATOR
+import lang
 from lang import t
 
 
@@ -327,13 +329,13 @@ def _base_css():
 """
 
 
-def _html_wrap(title, body, dark):
+def _html_wrap(title, body, dark, lang_code="en"):
     css = _css(dark) + _base_css()
     now = datetime.now().strftime("%d-%m-%Y  %H:%M")
     gen_str = t("rpt.generated", dt=now)
     footer_str = t("rpt.footer")
     return f"""<!DOCTYPE html>
-<html lang="en">
+<html lang="{lang_code}">
 <head>
 <meta charset="UTF-8">
 <title>{title} — {APP_NAME}</title>
@@ -357,7 +359,7 @@ def _macro_row(p, f, c, kcal, tag=""):
     f_lbl    = t("rpt.col_fat")
     c_lbl    = t("rpt.col_carbs")
     e_lbl    = t("rpt.col_energy")
-    tag_html = f'<span class="tag">{tag}</span>' if tag else ""
+    tag_html = f'<span class="tag">{escape(tag)}</span>' if tag else ""
     return f"""<div class="macro-row">
   <div class="col p-col"><div class="val">{t("mb.abbr_p")}: {p:.1f} g</div><div class="lbl">{p_lbl}</div></div>
   <div class="col f-col"><div class="val">{t("mb.abbr_f")}: {f:.1f} g</div><div class="lbl">{f_lbl}</div></div>
@@ -373,7 +375,7 @@ def _ingredients_table(ingredients):
     c_h = t("mb.abbr_c")
     food_h = t("rpt.col_meal")
     rows = "".join(
-        f"<tr><td>{i['name']}</td>"
+        f"<tr><td>{escape(i['name'])}</td>"
         f"<td>{i['w']:.1f}</td>"
         f"<td>{i['p']:.1f}</td>"
         f"<td>{i['f']:.1f}</td>"
@@ -444,7 +446,7 @@ def build_meal_html(meal_data, cfg, dark):
     if not body.strip():
         body = f'<div class="warn">{t("rpt.no_content")}</div>'
 
-    return _html_wrap(t("rpt.meal_report"), body, dark)
+    return _html_wrap(t("rpt.meal_report"), body, dark, lang_code=lang.get_lang())
 
 
 # =============================================================================
@@ -531,8 +533,8 @@ def build_log_html(log_data, cfg, dark):
                 kcal, p, f, c = _entry_macros(e)
                 pg     = e.get("portion_g")
                 pg_str = f"{pg:.0f}" if pg else "—"
-                nm     = e.get("meal_name", "—")
-                notes  = (e.get("notes") or "")[:80] or "—"
+                nm     = escape(e.get("meal_name", "—"))
+                notes  = escape((e.get("notes") or "")[:80] or "—")
 
                 body += (f"<tr>"
                          f"<td>{dt_str}</td>"
@@ -552,7 +554,7 @@ def build_log_html(log_data, cfg, dark):
     elif not has_content:
         body += f'<div class="warn">{t("rpt.no_content")}</div>'
 
-    return _html_wrap(t("rpt.journal_report"), body, dark)
+    return _html_wrap(t("rpt.journal_report"), body, dark, lang_code=lang.get_lang())
 
 # =============================================================================
 # RECIPE HTML REPORT
@@ -560,9 +562,9 @@ def build_log_html(log_data, cfg, dark):
 
 def build_recipe_html(recipe_data, cfg, dark):
     rd       = recipe_data
-    name     = rd.get("name", "Recipe")
+    name     = escape(rd.get("name", "Recipe"))
     created  = rd.get("created", "")
-    notes    = rd.get("notes", "")
+    notes    = escape(rd.get("notes", ""))
     serving_g      = rd.get("serving_g")
     raw_weight     = rd.get("raw_weight", 0)
     raw_totals     = rd.get("raw_totals", {})
@@ -620,5 +622,5 @@ def build_recipe_html(recipe_data, cfg, dark):
     if not body.strip():
         body = f'<div class="warn">{t("rpt.no_content")}</div>'
 
-    return _html_wrap(name, body, dark)
+    return _html_wrap(name, body, dark, lang_code=lang.get_lang())
 
