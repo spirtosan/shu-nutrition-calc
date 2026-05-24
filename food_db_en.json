@@ -1,0 +1,625 @@
+[
+    {
+        "name": "Protein",
+        "p": 100,
+        "f": 0,
+        "c": 0,
+        "kcal": 400
+    },
+    {
+        "name": "Fat",
+        "p": 0,
+        "f": 100,
+        "c": 0,
+        "kcal": 900
+    },
+    {
+        "name": "Carbohydrate",
+        "p": 0,
+        "f": 0,
+        "c": 100,
+        "kcal": 400
+    },
+    {
+        "name": "Water",
+        "p": 0.0,
+        "f": 0.0,
+        "c": 0.0,
+        "kcal": 0.0
+    },
+    {
+        "name": "Salt",
+        "p": 0.0,
+        "f": 0.0,
+        "c": 0.0,
+        "kcal": 0.0
+    },
+    {
+        "name": "Cow milk 3.2%",
+        "p": 3.1,
+        "f": 3.2,
+        "c": 4.7,
+        "kcal": 60.0
+    },
+    {
+        "name": "Yellow cheese Vitosha",
+        "p": 25.8,
+        "f": 29.6,
+        "c": 1.6,
+        "kcal": 376.0
+    },
+    {
+        "name": "Common trout",
+        "p": 16.5,
+        "f": 4.5,
+        "c": 0.0,
+        "kcal": 106.5
+    },
+    {
+        "name": "Salmon",
+        "p": 19.9,
+        "f": 12.2,
+        "c": 0.0,
+        "kcal": 189.4
+    },
+    {
+        "name": "Baltic herring (sprat)",
+        "p": 19.0,
+        "f": 10.0,
+        "c": 0.0,
+        "kcal": 166.0
+    },
+    {
+        "name": "Mackerel",
+        "p": 19.0,
+        "f": 14.0,
+        "c": 0.0,
+        "kcal": 202.0
+    },
+    {
+        "name": "Chicken egg",
+        "p": 12.0,
+        "f": 11.0,
+        "c": 0.7,
+        "kcal": 149.8
+    },
+    {
+        "name": "Pork",
+        "p": 14.0,
+        "f": 35.0,
+        "c": 0.0,
+        "kcal": 371.0
+    },
+    {
+        "name": "Butter",
+        "p": 0.0,
+        "f": 82.0,
+        "c": 0.0,
+        "kcal": 738.0
+    },
+    {
+        "name": "Lard",
+        "p": 0.0,
+        "f": 100.0,
+        "c": 0.0,
+        "kcal": 900.0
+    },
+    {
+        "name": "Vegetable oil",
+        "p": 0.0,
+        "f": 100.0,
+        "c": 0.0,
+        "kcal": 900.0
+    },
+    {
+        "name": "Sugar",
+        "p": 0.0,
+        "f": 0.0,
+        "c": 100.0,
+        "kcal": 400.0
+    },
+    {
+        "name": "Eggplant (aubergine)",
+        "p": 1.4,
+        "f": 0.2,
+        "c": 4.2,
+        "kcal": 24.2
+    },
+    {
+        "name": "White cabbage",
+        "p": 1.4,
+        "f": 0.2,
+        "c": 4.6,
+        "kcal": 25.8
+    },
+    {
+        "name": "Cauliflower",
+        "p": 8.2,
+        "f": 0.3,
+        "c": 5.3,
+        "kcal": 56.7
+    },
+    {
+        "name": "Red cabbage",
+        "p": 1.9,
+        "f": 0.3,
+        "c": 6.2,
+        "kcal": 35.1
+    },
+    {
+        "name": "Potatoes (spring/new)",
+        "p": 1.9,
+        "f": 0.1,
+        "c": 16.9,
+        "kcal": 76.1
+    },
+    {
+        "name": "Potatoes (autumn)",
+        "p": 2.4,
+        "f": 0.1,
+        "c": 19.2,
+        "kcal": 87.3
+    },
+    {
+        "name": "Cucumber",
+        "p": 0.6,
+        "f": 0.2,
+        "c": 2.3,
+        "kcal": 13.4
+    },
+    {
+        "name": "Tomatoes",
+        "p": 1.0,
+        "f": 0.2,
+        "c": 3.7,
+        "kcal": 20.6
+    },
+    {
+        "name": "Onion (dry)",
+        "p": 1.7,
+        "f": 0.3,
+        "c": 10.5,
+        "kcal": 51.5
+    },
+    {
+        "name": "Garlic (dry)",
+        "p": 6.3,
+        "f": 0.1,
+        "c": 29.1,
+        "kcal": 142.5
+    },
+    {
+        "name": "Carrots",
+        "p": 0.8,
+        "f": 0.2,
+        "c": 8.0,
+        "kcal": 37.0
+    },
+    {
+        "name": "Green pepper Sivria",
+        "p": 1.0,
+        "f": 0.3,
+        "c": 4.6,
+        "kcal": 25.1
+    },
+    {
+        "name": "Green pepper Kapia",
+        "p": 1.0,
+        "f": 0.3,
+        "c": 4.6,
+        "kcal": 25.1
+    },
+    {
+        "name": "Red bell pepper",
+        "p": 1.2,
+        "f": 0.5,
+        "c": 5.3,
+        "kcal": 30.5
+    },
+    {
+        "name": "Green bell pepper Kambi",
+        "p": 1.0,
+        "f": 0.2,
+        "c": 4.9,
+        "kcal": 25.4
+    },
+    {
+        "name": "Red bell pepper Kambi",
+        "p": 1.0,
+        "f": 0.02,
+        "c": 4.9,
+        "kcal": 23.8
+    },
+    {
+        "name": "White turnip",
+        "p": 1.9,
+        "f": 0.1,
+        "c": 7.0,
+        "kcal": 36.5
+    },
+    {
+        "name": "Black radish",
+        "p": 1.3,
+        "f": 0.1,
+        "c": 6.8,
+        "kcal": 33.3
+    },
+    {
+        "name": "Lettuce",
+        "p": 1.6,
+        "f": 0.2,
+        "c": 2.3,
+        "kcal": 17.4
+    },
+    {
+        "name": "Spinach",
+        "p": 3.2,
+        "f": 0.4,
+        "c": 3.2,
+        "kcal": 29.2
+    },
+    {
+        "name": "Zucchini (courgette)",
+        "p": 0.6,
+        "f": 0.0,
+        "c": 3.7,
+        "kcal": 17.2
+    },
+    {
+        "name": "Red beetroot",
+        "p": 1.2,
+        "f": 0.1,
+        "c": 9.3,
+        "kcal": 42.9
+    },
+    {
+        "name": "Banana",
+        "p": 1.1,
+        "f": 0.2,
+        "c": 21.0,
+        "kcal": 90.2
+    },
+    {
+        "name": "Sour cherries",
+        "p": 1.2,
+        "f": 0.4,
+        "c": 13.1,
+        "kcal": 60.8
+    },
+    {
+        "name": "Grapefruit",
+        "p": 0.7,
+        "f": 0.2,
+        "c": 9.8,
+        "kcal": 43.8
+    },
+    {
+        "name": "Grapes",
+        "p": 0.5,
+        "f": 0.1,
+        "c": 16.2,
+        "kcal": 67.7
+    },
+    {
+        "name": "Watermelon",
+        "p": 0.4,
+        "f": 0.1,
+        "c": 5.9,
+        "kcal": 26.1
+    },
+    {
+        "name": "Quince",
+        "p": 0.5,
+        "f": 0.4,
+        "c": 13.1,
+        "kcal": 58.0
+    },
+    {
+        "name": "Apricots",
+        "p": 0.7,
+        "f": 0.2,
+        "c": 11.1,
+        "kcal": 49.0
+    },
+    {
+        "name": "Pears",
+        "p": 0.3,
+        "f": 0.4,
+        "c": 14.5,
+        "kcal": 62.8
+    },
+    {
+        "name": "Lemons",
+        "p": 0.7,
+        "f": 0.6,
+        "c": 7.1,
+        "kcal": 36.6
+    },
+    {
+        "name": "Tangerines",
+        "p": 0.7,
+        "f": 0.3,
+        "c": 10.6,
+        "kcal": 47.9
+    },
+    {
+        "name": "Oranges",
+        "p": 0.9,
+        "f": 0.2,
+        "c": 10.5,
+        "kcal": 47.4
+    },
+    {
+        "name": "Peaches",
+        "p": 0.6,
+        "f": 0.1,
+        "c": 11.3,
+        "kcal": 48.5
+    },
+    {
+        "name": "Melon",
+        "p": 0.7,
+        "f": 0.3,
+        "c": 6.1,
+        "kcal": 29.9
+    },
+    {
+        "name": "Plums",
+        "p": 0.8,
+        "f": 0.2,
+        "c": 18.7,
+        "kcal": 79.8
+    },
+    {
+        "name": "Pumpkin",
+        "p": 0.7,
+        "f": 0.3,
+        "c": 7.8,
+        "kcal": 36.7
+    },
+    {
+        "name": "Sweet cherries",
+        "p": 0.8,
+        "f": 0.4,
+        "c": 13.5,
+        "kcal": 60.8
+    },
+    {
+        "name": "Apples",
+        "p": 0.3,
+        "f": 0.3,
+        "c": 14.7,
+        "kcal": 62.7
+    },
+    {
+        "name": "Strawberries",
+        "p": 0.9,
+        "f": 0.5,
+        "c": 6.5,
+        "kcal": 34.1
+    },
+    {
+        "name": "Almonds",
+        "p": 5.7,
+        "f": 15.0,
+        "c": 57.0,
+        "kcal": 385.8
+    },
+    {
+        "name": "Hazelnuts",
+        "p": 6.2,
+        "f": 13.9,
+        "c": 61.8,
+        "kcal": 397.1
+    },
+    {
+        "name": "Olives",
+        "p": 1.4,
+        "f": 13.9,
+        "c": 2.9,
+        "kcal": 142.3
+    },
+    {
+        "name": "Walnuts",
+        "p": 14.8,
+        "f": 64.0,
+        "c": 13.7,
+        "kcal": 690.0
+    },
+    {
+        "name": "Sunflower seeds",
+        "p": 21.0,
+        "f": 55.8,
+        "c": 4.1,
+        "kcal": 602.6
+    },
+    {
+        "name": "Pumpkin seeds",
+        "p": 32.4,
+        "f": 45.0,
+        "c": 12.5,
+        "kcal": 584.6
+    },
+    {
+        "name": "Peanuts",
+        "p": 26.5,
+        "f": 46.6,
+        "c": 19.0,
+        "kcal": 601.4
+    },
+    {
+        "name": "Oats",
+        "p": 13.0,
+        "f": 7.5,
+        "c": 66.0,
+        "kcal": 383.5
+    },
+    {
+        "name": "Rice (dry)",
+        "p": 7.0,
+        "f": 0.6,
+        "c": 78.8,
+        "kcal": 348.6
+    },
+    {
+        "name": "Wheat (soft)",
+        "p": 12.1,
+        "f": 1.7,
+        "c": 69.1,
+        "kcal": 340.1
+    },
+    {
+        "name": "Wheat (durum)",
+        "p": 14.0,
+        "f": 1.8,
+        "c": 67.4,
+        "kcal": 341.8
+    },
+    {
+        "name": "Beans (dry)",
+        "p": 23.3,
+        "f": 1.5,
+        "c": 55.5,
+        "kcal": 328.7
+    },
+    {
+        "name": "Lentils (dry)",
+        "p": 23.0,
+        "f": 1.0,
+        "c": 57.9,
+        "kcal": 332.6
+    },
+    {
+        "name": "Soybeans (dry)",
+        "p": 36.9,
+        "f": 20.7,
+        "c": 24.9,
+        "kcal": 433.5
+    },
+    {
+        "name": "Wheat flour type 500",
+        "p": 10.6,
+        "f": 1.1,
+        "c": 73.3,
+        "kcal": 345.5
+    },
+    {
+        "name": "Starch",
+        "p": 0.0,
+        "f": 0.0,
+        "c": 100.0,
+        "kcal": 400.0
+    },
+    {
+        "name": "Pasta (dry)",
+        "p": 10.8,
+        "f": 1.1,
+        "c": 75.0,
+        "kcal": 353.1
+    },
+    {
+        "name": "Honey",
+        "p": 0.4,
+        "f": 0.0,
+        "c": 78.3,
+        "kcal": 314.8
+    },
+    {
+        "name": "Chickpeas (dry)",
+        "p": 8.9,
+        "f": 2.6,
+        "c": 27.4,
+        "kcal": 168.6
+    },
+    {
+        "name": "Tahini (sesame paste)",
+        "p": 26.0,
+        "f": 59.1,
+        "c": 1.9,
+        "kcal": 643.5
+    },
+    {
+        "name": "Lemon juice",
+        "p": 0.4,
+        "f": 0.02,
+        "c": 6.9,
+        "kcal": 29.4
+    },
+    {
+        "name": "Shrimps peeled blanched",
+        "p": 15.0,
+        "f": 0.5,
+        "c": 0.5,
+        "kcal": 66.5
+    },
+    {
+        "name": "Rice (cooked)",
+        "p": 2.4,
+        "f": 0.25,
+        "c": 30.0,
+        "kcal": 131.8
+    },
+    {
+        "name": "Mayonnaise homemade",
+        "p": 2.0,
+        "f": 80.0,
+        "c": 3.0,
+        "kcal": 740.0
+    },
+    {
+        "name": "Corn (cooked)",
+        "p": 3.3,
+        "f": 1.5,
+        "c": 22.0,
+        "kcal": 114.7
+    },
+    {
+        "name": "Chickpeas (cooked)",
+        "p": 8.8,
+        "f": 2.6,
+        "c": 27.5,
+        "kcal": 168.6
+    },
+    {
+        "name": "[R] Hummus homemade",
+        "p": 9.12,
+        "f": 13.07,
+        "c": 17.19,
+        "kcal": 222.9
+    },
+    {
+        "name": "Pork mince for grill",
+        "p": 16.0,
+        "f": 18.0,
+        "c": 0.0,
+        "kcal": 226.0
+    },
+    {
+        "name": "Tomato sauce with basil Lidl",
+        "p": 1.3,
+        "f": 1.2,
+        "c": 6.2,
+        "kcal": 40.8
+    },
+    {
+        "name": "Chicken breast fillet",
+        "p": 23.0,
+        "f": 1.5,
+        "c": 0.0,
+        "kcal": 105.5
+    },
+    {
+        "name": "Dates",
+        "p": 2.3,
+        "f": 0.4,
+        "c": 75.0,
+        "kcal": 312.8
+    },
+    {
+        "name": "[R] Goulash",
+        "p": 2.75,
+        "f": 4.61,
+        "c": 7.62,
+        "kcal": 83.0
+    }
+]

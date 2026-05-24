@@ -1,0 +1,121 @@
+================================================================================
+  Shu Nutrition Calc v5.2 — File & Folder Structure
+================================================================================
+
+RUNTIME (next to ShuNutritionCalc.exe)
+──────────────────────────────────────────────────────────────────────────────
+
+  ShuNutritionCalc/
+  │
+  ├── ShuNutritionCalc.exe          ← Main executable
+  │
+  ├── food_db.json                  ← [AUTO] Your food & recipe library
+  ├── meal_log.json                 ← [AUTO] Journal — all logged meals
+  ├── print_config.json             ← [AUTO] Print/export toggle settings
+  ├── settings.json                 ← [AUTO] Language preference {"language":"bg"}
+  │
+  ├── lang/                         ← UI translation strings
+  │   ├── lang_en.json              ← English
+  │   ├── lang_ru.json              ← Russian
+  │   └── lang_bg.json              ← Bulgarian
+  │
+  ├── help/                         ← User manuals (open from Help button)
+  │   ├── help_en.html              ← English manual
+  │   ├── help_ru.html              ← Russian manual
+  │   └── help_bg.html              ← Bulgarian manual
+  │
+  └── db/                           ← [OPTIONAL] Pre-built food databases
+      │                               (future: installer lets user pick one)
+      ├── food_db_bg.json           ← Bulgarian database (current default)
+      ├── food_db_ru.json           ← Russian database (future)
+      └── food_db_en.json           ← English/international database (future)
+
+
+  Files marked [AUTO] are created automatically on first run.
+  Files in lang/, help/, and db/ must be placed manually (or by installer).
+  Files marked [OPTIONAL] are not required — app works with an empty database.
+
+
+────────────────────────────────────────────────────────────────────────────────
+  SOURCE CODE
+────────────────────────────────────────────────────────────────────────────────
+
+  source/
+  │
+  ├── shu_nutrition_calc.py         ← Entry point · window · sidebar · lang switcher
+  ├── config.py                     ← Constants · file paths · defaults
+  ├── models.py                     ← Data I/O · all calculations
+  ├── lang.py                       ← Translation engine · t() function
+  ├── ui_meal_builder.py            ← Meal Builder tab
+  ├── ui_database.py                ← Database Manager tab
+  ├── ui_log.py                     ← Journal tab + all dialogs
+  └── ui_print.py                   ← HTML report generation
+
+
+────────────────────────────────────────────────────────────────────────────────
+  BUILD OUTPUT  (after PyInstaller)
+────────────────────────────────────────────────────────────────────────────────
+
+  dist/
+  └── ShuNutritionCalc.exe          ← Single-file exe (all Python bundled inside)
+
+  After build, copy these next to the exe:
+
+  dist/
+  ├── ShuNutritionCalc.exe
+  ├── lang/
+  │   ├── lang_en.json
+  │   ├── lang_ru.json
+  │   └── lang_bg.json
+  ├── help/
+  │   ├── help_en.html
+  │   ├── help_ru.html
+  │   └── help_bg.html
+  └── db/
+      └── food_db_bg.json           ← Copy/rename to food_db.json on install
+
+
+────────────────────────────────────────────────────────────────────────────────
+  INSTALLER CONCEPT  (future)
+────────────────────────────────────────────────────────────────────────────────
+
+  The installer should:
+
+  1. Ask the user which database to install:
+       [ ] Bulgarian food database  (default)
+       [ ] Russian food database
+       [ ] English / international food database
+       [ ] Empty database (start fresh)
+
+  2. Copy the chosen db/food_db_XX.json → food_db.json in the install folder
+
+  3. Copy lang/, help/, and ShuNutritionCalc.exe to the chosen install path
+
+  4. Optionally create a desktop shortcut
+
+
+────────────────────────────────────────────────────────────────────────────────
+  DATA FILE NOTES
+────────────────────────────────────────────────────────────────────────────────
+
+  All runtime data files are plain JSON, located next to the .exe.
+  No registry, no AppData, no hidden files.
+
+  BACK UP these two files regularly:
+    food_db.json    ← your custom food & recipe library
+    meal_log.json   ← your complete meal history
+
+  food_db.json entry format:
+    {"name": "Chicken Breast", "p": 31.0, "f": 3.5, "c": 0.0, "kcal": 165.0}
+
+  meal_log.json entry format (v5.1+):
+    {
+      "id":        "uuid4-string",
+      "datetime":  "2026-03-11T14:30:00",
+      "meal_name": "Lunch",
+      "portion_g": 350.0,
+      "p": 42.5, "f": 8.2, "c": 31.0, "kcal": 367.0,
+      "notes": ""
+    }
+
+================================================================================

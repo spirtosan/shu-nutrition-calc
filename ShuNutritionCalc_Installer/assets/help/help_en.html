@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shu Nutrition Calc v5.2 — User Manual</title>
+<style>
+  :root {
+    --bg:      #0e0e12; --surface: #16161e; --surface2: #1e1e2a;
+    --border:  #2a2a3a; --text:    #dcdce8; --muted:    #7a7a90;
+    --amber:   #f5a623; --blue:    #4a9eff; --green:    #2ecc71;
+    --red:     #e74c3c;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text);
+         font-family: 'Segoe UI', Arial, sans-serif;
+         font-size: 15px; line-height: 1.7; }
+  header { background: var(--surface); border-bottom: 3px solid var(--amber);
+           padding: 20px 5%; display: flex; align-items: center;
+           gap: 18px; flex-wrap: wrap; }
+  header img { width: 56px; height: 56px; flex-shrink: 0; }
+  header h1 { color: var(--amber); font-size: 2rem; font-weight: 800; }
+  header .sub { color: var(--muted); font-size: 1rem; }
+  nav { background: var(--surface2); border: 1px solid var(--border);
+        border-radius: 10px; padding: 20px 28px; margin: 32px 5% 0; }
+  nav h2 { color: var(--blue); font-size: 1rem; margin-bottom: 10px; }
+  nav ol { padding-left: 20px; }
+  nav li { margin: 4px 0; }
+  nav a  { color: var(--blue); text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  main { padding: 32px 5% 60px; max-width: 1100px; }
+  section { background: var(--surface); border: 1px solid var(--border);
+            border-radius: 12px; padding: 28px 32px; margin-bottom: 28px; }
+  section h2 { color: var(--amber); font-size: 1.3rem;
+               border-bottom: 1px solid var(--border);
+               padding-bottom: 8px; margin-bottom: 16px; }
+  section h3 { color: var(--blue); font-size: 1.05rem; margin: 18px 0 8px; }
+  p { color: var(--text); margin-bottom: 10px; }
+  ul, ol { padding-left: 22px; margin-bottom: 12px; }
+  li { margin: 5px 0; }
+  code { background: var(--surface2); border: 1px solid var(--border);
+         border-radius: 4px; padding: 2px 7px;
+         font-family: Consolas, monospace; font-size: 0.9em; color: var(--green); }
+  pre { background: var(--surface2); border: 1px solid var(--border);
+        border-radius: 8px; padding: 16px 20px; overflow-x: auto;
+        font-family: Consolas, monospace; font-size: 0.88em;
+        color: var(--green); margin: 12px 0; }
+  .note { background: #1a1a2a; border-left: 4px solid var(--blue);
+          border-radius: 0 8px 8px 0; padding: 12px 18px; margin: 12px 0;
+          color: #a0a8c8; font-size: 0.93em; }
+  .warn { background: #2a1a1a; border-left: 4px solid var(--red);
+          border-radius: 0 8px 8px 0; padding: 12px 18px; margin: 12px 0;
+          color: #e09090; font-size: 0.93em; }
+  .tip  { background: #1a2a1a; border-left: 4px solid var(--green);
+          border-radius: 0 8px 8px 0; padding: 12px 18px; margin: 12px 0;
+          color: #90d0a0; font-size: 0.93em; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.93em; }
+  th { background: var(--surface2); color: var(--blue); padding: 9px 14px;
+       text-align: left; border: 1px solid var(--border); }
+  td { padding: 8px 14px; border: 1px solid var(--border);
+       color: var(--text); vertical-align: top; }
+  tr:nth-child(even) td { background: #13131a; }
+  footer { background: var(--surface); border-top: 1px solid var(--border);
+           padding: 18px 5%; color: var(--muted); font-size: 0.85em;
+           text-align: center; }
+  footer span { color: var(--amber); }
+  kbd { background: var(--surface2); border: 1px solid var(--border);
+        border-radius: 4px; padding: 2px 7px;
+        font-family: Consolas, monospace; font-size: 0.85em; color: var(--amber); }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="../img/mylogo64.png" alt="Shu Nutrition Calc logo">
+  <div>
+    <h1>Shu Nutrition Calc</h1>
+    <span class="sub">v5.3 &nbsp;·&nbsp; User Manual &nbsp;·&nbsp; Created by Ivan Shumkov</span>
+  </div>
+</header>
+
+<nav>
+  <h2>Table of Contents</h2>
+  <ol>
+    <li><a href="#quickstart">Quick Start</a></li>
+    <li><a href="#meal-builder">Meal Builder</a></li>
+    <li><a href="#prepared">Prepared Food Weight — Physics &amp; Rules</a></li>
+    <li><a href="#database">Database Manager</a></li>
+    <li><a href="#journal">Journal</a></li>
+    <li><a href="#print">Print &amp; Export</a></li>
+    <li><a href="#calculations">How Calculations Work</a></li>
+    <li><a href="#files">Data Files &amp; Backup</a></li>
+    <li><a href="#compile">Compiling from Source</a></li>
+    <li><a href="#about">About &amp; Version History</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<!-- ═══════════ 1. QUICK START ═══════════ -->
+<section id="quickstart">
+  <h2>1 · Quick Start</h2>
+  <p>No installation required. Place <code>ShuNutritionCalc.exe</code> in any folder
+  along with the <code>lang/</code> and <code>help/</code> subfolders.
+  All data files are <strong>auto-created on first run</strong>:</p>
+
+  <table>
+    <tr><th>File</th><th>Purpose</th><th>Auto-created?</th></tr>
+    <tr><td><code>food_db.json</code></td><td>Your food and recipe library</td><td>✅ Yes</td></tr>
+    <tr><td><code>meal_log.json</code></td><td>Journal — all logged meals</td><td>✅ Yes</td></tr>
+    <tr><td><code>print_config.json</code></td><td>Saved settings (print toggles + preferences)</td><td>✅ Yes</td></tr>
+    <tr><td><code>settings.json</code></td><td>Language preference</td><td>✅ Yes</td></tr>
+    <tr><td><code>lang/lang_en.json</code></td><td>English UI strings</td><td>Place manually</td></tr>
+    <tr><td><code>lang/lang_ru.json</code></td><td>Russian UI strings</td><td>Place manually</td></tr>
+    <tr><td><code>lang/lang_bg.json</code></td><td>Bulgarian UI strings</td><td>Place manually</td></tr>
+    <tr><td><code>help/help_en.html</code></td><td>This manual (English)</td><td>Place manually</td></tr>
+  </table>
+
+  <div class="tip">💡 Back up <code>food_db.json</code> and <code>meal_log.json</code>
+  regularly — they contain all your data.</div>
+
+  <h3>Sidebar Navigation</h3>
+  <ul>
+    <li><strong>🍱 Meal Builder</strong> — Build meals, calculate macros, log to journal</li>
+    <li><strong>📂 Database</strong> — Manage your food and recipe library</li>
+    <li><strong>📓 Journal</strong> — View, edit and analyse logged meals</li>
+    <li><strong>❓ Help / Manual</strong> — This document</li>
+    <li><strong>ℹ About</strong> — Version information</li>
+  </ul>
+
+  <h3>Language Switching</h3>
+  <p>Three buttons at the bottom of the sidebar — <strong>EN</strong>, <strong>RU</strong>,
+  <strong>BG</strong> — switch the interface language instantly. The active language is
+  highlighted in amber and is remembered between sessions.</p>
+</section>
+
+<!-- ═══════════ 2. MEAL BUILDER ═══════════ -->
+<section id="meal-builder">
+  <h2>2 · Meal Builder</h2>
+
+  <h3>Adding Food Items</h3>
+  <ol>
+    <li>Type in the <strong>Search</strong> box — list filters as you type</li>
+    <li>Click a food to select it — focus moves to <strong>Weight (g)</strong> automatically</li>
+    <li>Enter a weight and press <kbd>Enter</kbd> or click <strong>+ Add to Meal</strong></li>
+  </ol>
+  <div class="note">The meal ingredient list is read-only. To change a weight,
+  double-click the row to remove it, then add it again at the correct weight.</div>
+
+  <h3>Summary Labels</h3>
+  <ul>
+    <li><strong>WHOLE MEAL WEIGHT</strong> — total grams, labelled RAW or PREPARED</li>
+    <li><strong>WHOLE MEAL</strong> — total P / F / C / kcal</li>
+    <li><strong>PER 100g</strong> — concentration per 100g (highlighted in amber)</li>
+    <li><strong>Portion row</strong> — macros for any portion size you type</li>
+  </ul>
+
+  <h3>Impossible Value Warning</h3>
+  <p>A red warning appears if per-100g kcal exceeds 900 (physical maximum = pure fat)
+  or if P+F+C per 100g exceeds 100g. Both indicate incorrect database entries —
+  find and fix them in the Database Manager.</p>
+
+  <h3>Portion and "Use Whole Meal as Portion" Checkbox</h3>
+  <p>The <strong>Portion (g)</strong> field calculates macros for any serving size.
+  The <strong>Use whole meal as portion</strong> checkbox controls what gets pre-filled
+  when you click Add to Journal:</p>
+  <table>
+    <tr><th>Situation</th><th>Portion pre-filled in Add to Journal dialog</th></tr>
+    <tr><td>Portion field has a value</td><td>That value — always wins</td></tr>
+    <tr><td>Portion field empty + checkbox ON</td><td>Whole meal weight (prepared if available, else raw)</td></tr>
+    <tr><td>Portion field empty + checkbox OFF</td><td>Empty — you type it in the dialog</td></tr>
+  </table>
+  <p>The checkbox state is saved between sessions.</p>
+
+  <h3>Action Buttons</h3>
+  <table>
+    <tr><th>Button</th><th>Action</th></tr>
+    <tr><td>Save as Recipe</td><td>Saves meal as a new database entry at per-100g values.
+        Prefix <code>[R]</code> added automatically.</td></tr>
+    <tr><td>Add to Journal</td><td>Opens the log dialog to record this meal</td></tr>
+    <tr><td>Print Meal</td><td>Opens the HTML export dialog (active once ingredients are added)</td></tr>
+    <tr><td>Clear All</td><td>Resets the meal builder after confirmation</td></tr>
+  </table>
+</section>
+
+<!-- ═══════════ 3. PREPARED WEIGHT ═══════════ -->
+<section id="prepared">
+  <h2>3 · Prepared Food Weight — Physics &amp; Rules</h2>
+
+  <h3>Why Enter a Prepared Weight?</h3>
+  <p>When you cook food, water evaporates (roasting, frying, baking) or is added then
+  drained (boiling). Weigh the finished dish and enter that weight. The app then
+  calculates per-100g and per-portion values based on the actual cooked weight,
+  which is what you eat from.</p>
+
+  <h3>The Core Physics Rule</h3>
+  <div class="tip"><strong>Only water changes during cooking. Protein, fat,
+  carbohydrates and calories stay in the dish.</strong><br><br>
+  Total P/F/C/kcal are <em>identical</em> for raw and prepared views.
+  What changes is the <em>concentration per 100g</em> — the same nutrients in
+  a different weight of food.</div>
+
+  <h3>Valid Prepared Weight Range</h3>
+  <table>
+    <tr><th>Limit</th><th>Rule</th><th>Reason</th></tr>
+    <tr><td>Maximum</td><td>≤ raw total weight</td>
+        <td>Cannot gain mass without adding an ingredient. Add absorbed water as
+            an ingredient (0 macros, real weight) for boiling.</td></tr>
+    <tr><td>Minimum</td><td>≥ P + F + C (dry macro mass)</td>
+        <td>Protein, fat and carbs cannot evaporate — only water can.</td></tr>
+  </table>
+  <div class="warn">⚠ Example: a meal has 200g carbs + 50g fat + 30g protein = 280g dry mass.
+  A prepared weight of 200g is rejected — the app shows the minimum allowed.</div>
+
+  <h3>Zero-Macro Ingredients (Water, Salt, Baking Soda…)</h3>
+  <p>These have weight but no calories. Add them to your database and include them
+  as ingredients so the raw weight and floor check are calculated correctly:</p>
+  <table>
+    <tr><th>Ingredient</th><th>P</th><th>F</th><th>C</th><th>kcal</th></tr>
+    <tr><td>Water</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+    <tr><td>Salt</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+    <tr><td>Baking soda / powder</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+  </table>
+
+  <h3>Boiling / Weight-Gaining Cooking</h3>
+  <p>Pasta, rice, and legumes absorb water and get heavier. Add water as an ingredient
+  (only the absorbed amount matters in the final weight), then enter the drained cooked
+  weight as the prepared weight. Example: 80g dry pasta + 500g water → 200g cooked pasta.
+  Raw weight = 580g, prepared = 200g, floor = ~75g dry macro mass — all valid.</p>
+
+  <h3>Weight Loss vs Moisture Loss</h3>
+  <p>When a valid prepared weight is entered, the status line shows both figures:</p>
+  <ul>
+    <li><strong>Weight loss</strong> — how much lighter the dish is vs raw total weight</li>
+    <li><strong>Moisture lost</strong> — what fraction of the raw water content evaporated</li>
+  </ul>
+</section>
+
+<!-- ═══════════ 4. DATABASE ═══════════ -->
+<section id="database">
+  <h2>4 · Database Manager</h2>
+  <p>All foods are stored as <strong>per-100g values</strong>. When you add a food
+  to a meal, the app scales values to the weight you enter.</p>
+
+  <h3>Adding a New Food</h3>
+  <ol>
+    <li>Fill in name, protein, fat, carbs per 100g</li>
+    <li>kcal auto-calculates (P×4 + F×9 + C×4)</li>
+    <li>Click <strong>Save to DB</strong></li>
+  </ol>
+  <div class="warn">⚠ P + F + C cannot exceed 100g per 100g of food. Maximum kcal/100g
+  is 900 (pure fat). Pure sugar or pure protein = 400 kcal/100g.</div>
+
+  <h3>Recipes</h3>
+  <p>When you save a meal as a recipe from Meal Builder, it is stored at per-100g values
+  with a <code>[R]</code> prefix. Recipes behave exactly like individual foods in search.</p>
+
+  <h3>Deleting</h3>
+  <p>Select an entry and click <strong>Delete Selected Product</strong>.
+  Deletions are immediate — no undo.</p>
+</section>
+
+<!-- ═══════════ 5. JOURNAL ═══════════ -->
+<section id="journal">
+  <h2>5 · Journal</h2>
+
+  <h3>Logging a Meal from Meal Builder</h3>
+  <p>Click <strong>Add to Journal</strong>. The dialog asks for:</p>
+  <ul>
+    <li><strong>Meal name</strong> — last used name is pre-filled</li>
+    <li><strong>Date/Time</strong> — defaults to now; uncheck to enter manually (DD-MM-YYYY HH:MM)</li>
+    <li><strong>Portion (g)</strong> — required; pre-filled per Meal Builder rules (section 2)</li>
+    <li><strong>Notes</strong> — free text</li>
+  </ul>
+  <p>The <strong>live preview</strong> shows kcal / P / F / C for the entered portion,
+  updating as you type. If prepared weight was set, the preview uses the prepared
+  concentration automatically.</p>
+
+  <h3>Add Manual Entry</h3>
+  <p>Click <strong>➕ Add Entry</strong> to log a meal without Meal Builder — useful
+  for meals eaten out. You can enter kcal only. For full P/F/C tracking, use Meal Builder.</p>
+
+  <h3>Period Selector</h3>
+  <p>Choose from: Today, Yesterday, Last 7 Days, Last 30 Days, Last Month, Last Year,
+  or Custom (calendar picker, Monday start, DD-MM-YYYY).</p>
+
+  <h3>Period Summary</h3>
+  <p>Shows average kcal / P / F / C per day for the selected period. Missing days are
+  flagged in an amber warning bar. You can choose to:</p>
+  <ul>
+    <li><strong>Show entries only</strong> — count only days with data</li>
+    <li><strong>Include empty days (avg=0)</strong> — count empty days as zero</li>
+    <li><strong>Fill missing days…</strong> — step through each missing day and skip,
+        zero, or enter manually</li>
+  </ul>
+
+  <h3>Journal List Columns</h3>
+  <table>
+    <tr><th>Column</th><th>Contents</th></tr>
+    <tr><td>Date / Time</td><td>When the meal was logged (DD-MM-YYYY HH:MM)</td></tr>
+    <tr><td>Meal Name</td><td>Name entered at log time</td></tr>
+    <tr><td>Portion (g)</td><td>Grams eaten</td></tr>
+    <tr><td>kcal</td><td>Calories for that portion</td></tr>
+    <tr><td>P / F / C (g)</td><td>Macros for that portion</td></tr>
+  </table>
+
+  <h3>Editing Entries</h3>
+  <p>Double-click a row or select and click <strong>✏ Edit Selected</strong>.
+  All fields are editable for v5.1+ entries. Older legacy entries show values
+  read-only; name, date, and notes are still editable.</p>
+</section>
+
+<!-- ═══════════ 6. PRINT ═══════════ -->
+<section id="print">
+  <h2>6 · Print &amp; Export</h2>
+  <p>Reports are generated as <strong>HTML files</strong> opened automatically in your
+  default browser. To print on paper use <kbd>Ctrl+P</kbd> → choose printer or Save as PDF.</p>
+
+  <h3>Print Meal</h3>
+  <p>Available in the Meal Builder once at least one ingredient is added.
+  All toggles start <strong>off</strong> — select what to include:</p>
+  <table>
+    <tr><th>Toggle</th><th>Contents</th></tr>
+    <tr><td>Whole meal — raw</td><td>Total P/F/C/kcal for raw ingredient weight</td></tr>
+    <tr><td>Whole meal — prepared</td><td>Same totals with prepared weight as reference</td></tr>
+    <tr><td>Per 100g — raw / prepared</td><td>Concentration per 100g</td></tr>
+    <tr><td>Per portion — raw / prepared</td><td>Macros for the Meal Builder portion size</td></tr>
+    <tr><td>Full ingredient list</td><td>Full breakdown (always raw weights)</td></tr>
+  </table>
+
+  <h3>Print Journal Log</h3>
+  <p>Available in the Journal tab when the current period has entries:</p>
+  <table>
+    <tr><th>Toggle</th><th>Contents</th></tr>
+    <tr><td>Individual meal entries</td><td>Each meal: name, date, portion, kcal, P/F/C, notes</td></tr>
+    <tr><td>Daily totals</td><td>One row per day: date, meal count, total kcal, P/F/C</td></tr>
+    <tr><td>Period average</td><td>Average daily kcal and macros — empty days excluded</td></tr>
+  </table>
+
+  <h3>Theme</h3>
+  <table>
+    <tr><th>Theme</th><th>Best for</th></tr>
+    <tr><td>Dark (checkbox ticked)</td><td>Viewing on screen</td></tr>
+    <tr><td>Light (default)</td><td>Printing on paper — saves ink</td></tr>
+  </table>
+
+  <p>All toggle states are saved to <code>print_config.json</code> each time
+  you click <em>Open in Browser</em>.</p>
+</section>
+
+<!-- ═══════════ 7. CALCULATIONS ═══════════ -->
+<section id="calculations">
+  <h2>7 · How Calculations Work</h2>
+
+  <h3>Calorie Formula (Atwater General Factors)</h3>
+  <pre>kcal = (Protein × 4) + (Fat × 9) + (Carbohydrates × 4)</pre>
+  <p>Physical reference limits:</p>
+  <ul>
+    <li>Maximum kcal/100g = 900 — pure fat</li>
+    <li>Pure carbohydrate or pure protein = 400 kcal/100g</li>
+    <li>P + F + C cannot exceed 100g per 100g of food</li>
+  </ul>
+
+  <h3>Prepared Weight — Totals vs Concentration</h3>
+  <pre>-- Whole-meal TOTALS are unchanged --
+prepared_P    = raw_P
+prepared_F    = raw_F
+prepared_C    = raw_C
+prepared_kcal = raw_kcal
+
+-- CONCENTRATION rises because weight falls --
+per_100g_X = total_X / weight × 100
+
+-- Valid range --
+min_prepared_weight = P_total + F_total + C_total  (dry macro mass)
+max_prepared_weight = raw_total_weight</pre>
+
+  <h3>Per 100g and Portion</h3>
+  <pre>per_100g_X = total_X / ref_weight × 100
+portion_X  = total_X / ref_weight × portion_g</pre>
+
+  <h3>Recipe Saving</h3>
+  <pre>recipe_X_per_100g = total_X / total_raw_weight × 100</pre>
+  <p>Stored as per-100g so the recipe can be used like any other food item.</p>
+</section>
+
+<!-- ═══════════ 8. DATA FILES ═══════════ -->
+<section id="files">
+  <h2>8 · Data Files &amp; Backup</h2>
+  <p>All files are in the <strong>same folder as the .exe</strong>.
+  No registry entries, no AppData, no hidden files.</p>
+
+  <h3>food_db.json</h3>
+  <pre>[
+  {"name": "Chicken Breast", "p": 31.0, "f": 3.5, "c": 0.0, "kcal": 165.0},
+  {"name": "Water",          "p":  0.0, "f": 0.0, "c": 0.0, "kcal":   0.0}
+]</pre>
+
+  <h3>meal_log.json — Entry Structure (v5.1+)</h3>
+  <pre>{
+  "id":        "uuid4-string",
+  "datetime":  "2026-03-11T14:30:00",
+  "meal_name": "Lunch",
+  "portion_g": 350.0,
+  "p": 42.5, "f": 8.2, "c": 31.0, "kcal": 367.0,
+  "notes": ""
+}</pre>
+
+  <h3>settings.json</h3>
+  <pre>{"language": "en"}</pre>
+  <p>Stores the selected interface language. Auto-created on first run.</p>
+
+  <h3>Backup</h3>
+  <p>Copy <code>food_db.json</code> and <code>meal_log.json</code> to a cloud folder
+  or USB drive regularly. These two files contain all your data.</p>
+</section>
+
+<!-- ═══════════ 9. COMPILE ═══════════ -->
+<section id="compile">
+  <h2>9 · Compiling from Source</h2>
+
+  <h3>Requirements</h3>
+  <pre>pip install customtkinter tkcalendar pyinstaller</pre>
+
+  <h3>Source File Structure</h3>
+  <pre>shu_nutrition_calc.py   ← entry point, window, sidebar, language switcher
+config.py               ← constants, file paths, defaults
+models.py               ← data I/O, all calculations
+lang.py                 ← translation engine, t() function
+ui_meal_builder.py      ← Meal Builder tab
+ui_database.py          ← Database Manager tab
+ui_log.py               ← Journal tab + all dialogs
+ui_print.py             ← HTML report generation
+lang/
+  lang_en.json          ← English strings
+  lang_ru.json          ← Russian strings
+  lang_bg.json          ← Bulgarian strings
+help/
+  help_en.html          ← English manual
+  help_ru.html          ← Russian manual
+  help_bg.html          ← Bulgarian manual</pre>
+
+  <h3>Build Command (Windows)</h3>
+  <pre>python -m PyInstaller --onefile --noconsole ^
+  --collect-all customtkinter ^
+  --collect-all tkcalendar ^
+  shu_nutrition_calc.py</pre>
+
+  <p>After compilation, place the following next to <code>ShuNutritionCalc.exe</code>
+  in the <code>dist/</code> folder:</p>
+  <ul>
+    <li><code>lang/</code> folder with all three JSON files</li>
+    <li><code>help/</code> folder with all three HTML files</li>
+    <li>Optionally: <code>db/</code> folder with pre-built food databases</li>
+  </ul>
+
+  <div class="warn">⚠ Run the .exe from <code>dist/</code>, not from inside
+  <code>build/</code>. Data files are always created next to the executable.</div>
+</section>
+
+<!-- ═══════════ 10. ABOUT ═══════════ -->
+<section id="about">
+  <h2>10 · About &amp; Version History</h2>
+
+  <table>
+    <tr><th>Field</th><th>Value</th></tr>
+    <tr><td>Application</td><td>Shu Nutrition Calc</td></tr>
+    <tr><td>Version</td><td>5.2</td></tr>
+    <tr><td>Created by</td><td>Ivan Shumkov</td></tr>
+    <tr><td>Contact</td><td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e291928b90968d91838ca2858f838b8ecc818d8f">[email&#160;protected]</a></td></tr>
+    <tr><td>Year</td><td>2026</td></tr>
+    <tr><td>License</td><td>Personal use</td></tr>
+  </table>
+
+  <h3>Version History</h3>
+  <table>
+    <tr><th>Version</th><th>Changes</th></tr>
+    <tr><td>v1.0–v3.x</td><td>Original NutriCalc versions</td></tr>
+    <tr><td>v4.0</td><td>Renamed to Shu Nutrition Calc. Help/About windows. Branding.</td></tr>
+    <tr><td>v5.0</td><td>Multi-file architecture · kcal/100g column · Prepared weight with
+        RAW/PREPARED toggle · Journal CRUD · Period summary · tkcalendar date picker ·
+        HTML export · Inline Help/About</td></tr>
+    <tr><td>v5.1</td><td>Calorie calculation corrected · Prepared weight floor check ·
+        Simplified journal logging · Live macro preview in dialog ·
+        "Use whole meal as portion" checkbox · Impossible value warning ·
+        Active tab indicator · Font &amp; UX improvements</td></tr>
+    <tr><td>v5.2</td><td>Multilingual support — English, Russian, Bulgarian ·
+        Language switcher in sidebar · Instant UI rebuild on language change ·
+        Language preference saved to settings.json · 5-colour button system</td></tr>
+  </table>
+
+  <div class="note">ℹ This application is a personal nutrition tracking tool using
+  standard Atwater calorie factors. Values are estimates. It is not medical or dietary
+  advice — consult a qualified professional for clinical guidance.</div>
+</section>
+
+</main>
+
+<footer>
+  <span>Shu Nutrition Calc v5.2</span

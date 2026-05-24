@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# PyInstaller build artifacts
+dist/
+build/
+*.spec.bak
+
+# Compiled executables
+*.exe
+
+# Inno Setup
+innosetup/
+ShuNutritionCalc_Installer/Output/
+ShuNutritionCalc_Installer/assets/ShuNutritionCalc.exe
+
+# User data files (personal — never commit)
+food_db.json
+meal_log.json
+recipes.json
+settings.json
+print_config.json
+
+# Logs
+*.log
+
+# Environment
+.env
+
+# Build mount / CI output
+mnt/
+
+# OS junk
+Thumbs.db
+desktop.ini
+.DS_Store
