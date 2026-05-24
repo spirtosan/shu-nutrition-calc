@@ -9,7 +9,7 @@ from tkinter import messagebox, simpledialog, Listbox, END
 from datetime import datetime
 from models import (save_db, new_log_entry, save_log, new_recipe, save_recipes,
                     calc_prepared, calc_per_100g, calc_portion,
-                    load_print_config, save_print_config)
+                    load_print_config, save_print_config, SaveError)
 from config import APP_NAME
 from lang import t
 
@@ -197,7 +197,11 @@ class MealBuilderFrame(ctk.CTkFrame):
     def _on_whole_toggle(self):
         cfg = load_print_config()
         cfg["use_whole_meal_as_portion"] = self._use_whole.get()
-        save_print_config(cfg)
+        try:
+            save_print_config(cfg)
+        except SaveError as e:
+            messagebox.showerror("Save Error",
+                                 f"Could not save {e.filename}:\n{e.strerror}")
         self._update_display()
 
     # ------------------------------------------------------------------
@@ -521,7 +525,13 @@ class MealBuilderFrame(ctk.CTkFrame):
             "p": p_val, "f": f_val, "c": c_val,
             "kcal": round(p_val * 4 + f_val * 9 + c_val * 4, 1),
         })
-        save_db(self.app.db)
+        try:
+            save_db(self.app.db)
+        except SaveError as e:
+            self.app.db.pop()
+            messagebox.showerror("Save Error",
+                                 f"Could not save {e.filename}:\n{e.strerror}")
+            return
         self.app.db_frame.refresh()
         messagebox.showinfo(t("mb.info_saved_title"),
                             t("mb.info_saved_recipe", name=full_name))

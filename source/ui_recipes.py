@@ -10,7 +10,7 @@ from tkinter import messagebox, Listbox, SINGLE, END
 from datetime import datetime
 
 from models import (load_recipes, save_recipes, new_recipe,
-                    calc_per_100g, calc_portion)
+                    calc_per_100g, calc_portion, SaveError)
 from lang import t
 
 
@@ -296,7 +296,12 @@ class RecipeBookFrame(ctk.CTkFrame):
                 t("rcb.confirm_delete_msg", name=recipe["name"])):
             self.app.recipes = [
                 r for r in self.app.recipes if r["id"] != recipe["id"]]
-            save_recipes(self.app.recipes)
+            try:
+                save_recipes(self.app.recipes)
+            except SaveError as e:
+                messagebox.showerror("Save Error",
+                                     f"Could not save {e.filename}:\n{e.strerror}")
+                return
             self.refresh()
 
 
@@ -669,7 +674,12 @@ class EditRecipeDialog(ctk.CTkToplevel):
             updated if r["id"] == self.recipe["id"] else r
             for r in self.app.recipes
         ]
-        save_recipes(self.app.recipes)
+        try:
+            save_recipes(self.app.recipes)
+        except SaveError as e:
+            messagebox.showerror("Save Error",
+                                 f"Could not save {e.filename}:\n{e.strerror}")
+            return
         self.on_saved()
         self.destroy()
 
@@ -789,7 +799,13 @@ class SaveRecipeDialog(ctk.CTkToplevel):
         )
 
         self.app.recipes.append(recipe)
-        save_recipes(self.app.recipes)
+        try:
+            save_recipes(self.app.recipes)
+        except SaveError as e:
+            self.app.recipes.pop()
+            messagebox.showerror("Save Error",
+                                 f"Could not save {e.filename}:\n{e.strerror}")
+            return
         self.app.recipe_frame.refresh()
         self.result = recipe
         messagebox.showinfo(t("svr.info_saved_title"),

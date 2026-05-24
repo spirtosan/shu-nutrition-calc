@@ -12,6 +12,10 @@ from config import (DB_FILE, LOG_FILE, CONFIG_FILE,
                     DEFAULT_PRINT_CONFIG, DEFAULT_DB)
 
 
+class SaveError(OSError):
+    pass
+
+
 # =============================================================================
 # DATABASE
 # =============================================================================
@@ -27,8 +31,17 @@ def load_db():
 
 def save_db(db):
     """Persist food database to disk."""
-    with open(DB_FILE, "w", encoding="utf-8") as f:
-        json.dump(db, f, indent=4, ensure_ascii=False)
+    tmp = DB_FILE + ".tmp"
+    try:
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(db, f, indent=4, ensure_ascii=False)
+        os.replace(tmp, DB_FILE)
+    except OSError as e:
+        try:
+            os.remove(tmp)
+        except OSError:
+            pass
+        raise SaveError(e.errno, e.strerror, DB_FILE) from e
 
 
 # =============================================================================
@@ -46,8 +59,17 @@ def load_log():
 
 def save_log(log):
     """Persist meal log to disk."""
-    with open(LOG_FILE, "w", encoding="utf-8") as f:
-        json.dump(log, f, indent=4, ensure_ascii=False, default=str)
+    tmp = LOG_FILE + ".tmp"
+    try:
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(log, f, indent=4, ensure_ascii=False, default=str)
+        os.replace(tmp, LOG_FILE)
+    except OSError as e:
+        try:
+            os.remove(tmp)
+        except OSError:
+            pass
+        raise SaveError(e.errno, e.strerror, LOG_FILE) from e
 
 
 def new_log_entry(meal_name, portion_g, p, f, c, kcal, dt=None, notes=""):
@@ -213,8 +235,17 @@ def load_print_config():
 
 def save_print_config(cfg):
     """Persist config to disk."""
-    with open(CONFIG_FILE, "w", encoding="utf-8") as f:
-        json.dump(cfg, f, indent=4, ensure_ascii=False)
+    tmp = CONFIG_FILE + ".tmp"
+    try:
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(cfg, f, indent=4, ensure_ascii=False)
+        os.replace(tmp, CONFIG_FILE)
+    except OSError as e:
+        try:
+            os.remove(tmp)
+        except OSError:
+            pass
+        raise SaveError(e.errno, e.strerror, CONFIG_FILE) from e
 
 
 # =============================================================================
@@ -288,8 +319,17 @@ def load_settings():
 def save_settings(cfg):
     """Persist settings to disk."""
     from config import SETTINGS_FILE
-    with open(SETTINGS_FILE, "w", encoding="utf-8") as f:
-        json.dump(cfg, f, indent=4, ensure_ascii=False)
+    tmp = SETTINGS_FILE + ".tmp"
+    try:
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(cfg, f, indent=4, ensure_ascii=False)
+        os.replace(tmp, SETTINGS_FILE)
+    except OSError as e:
+        try:
+            os.remove(tmp)
+        except OSError:
+            pass
+        raise SaveError(e.errno, e.strerror, SETTINGS_FILE) from e
 
 
 # =============================================================================
@@ -311,8 +351,17 @@ def load_recipes():
 
 def save_recipes(recipes):
     from config import RECIPES_FILE
-    with open(RECIPES_FILE, "w", encoding="utf-8") as f:
-        json.dump(recipes, f, ensure_ascii=False, indent=2)
+    tmp = RECIPES_FILE + ".tmp"
+    try:
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(recipes, f, ensure_ascii=False, indent=2)
+        os.replace(tmp, RECIPES_FILE)
+    except OSError as e:
+        try:
+            os.remove(tmp)
+        except OSError:
+            pass
+        raise SaveError(e.errno, e.strerror, RECIPES_FILE) from e
 
 
 def new_recipe(name, ingredients, raw_weight, raw_totals,

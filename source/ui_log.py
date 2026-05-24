@@ -12,7 +12,7 @@ from datetime import datetime, date, timedelta
 from models import (load_log, save_log, new_log_entry, _entry_macros,
                     get_period_entries, get_daily_summary,
                     find_missing_periods, compute_period_averages,
-                    calc_portion)
+                    calc_portion, SaveError)
 from config import APP_NAME
 from lang import t
 
@@ -372,11 +372,21 @@ class JournalFrame(ctk.CTkFrame):
                                t("jrn.confirm_delete_msg", name=nm)):
             self.app.log = [e for e in self.app.log
                             if e["id"] != entry["id"]]
-            save_log(self.app.log)
+            try:
+                save_log(self.app.log)
+            except SaveError as e:
+                messagebox.showerror("Save Error",
+                                     f"Could not save {e.filename}:\n{e.strerror}")
+                return
             self.refresh()
 
     def _on_entry_saved(self):
-        save_log(self.app.log)
+        try:
+            save_log(self.app.log)
+        except SaveError as e:
+            messagebox.showerror("Save Error",
+                                 f"Could not save {e.filename}:\n{e.strerror}")
+            return
         self.refresh()
 
     # ------------------------------------------------------------------
@@ -600,7 +610,13 @@ class LogEntryDialog(ctk.CTkToplevel):
             dt=dt, notes=notes)
 
         self.app.log.append(entry)
-        save_log(self.app.log)
+        try:
+            save_log(self.app.log)
+        except SaveError as e:
+            self.app.log.pop()
+            messagebox.showerror("Save Error",
+                                 f"Could not save {e.filename}:\n{e.strerror}")
+            return
         self.result = entry
         self.destroy()
 
@@ -799,7 +815,12 @@ class EditEntryDialog(ctk.CTkToplevel):
                     e["notes"]     = notes
                     break
 
-        save_log(self.app.log)
+        try:
+            save_log(self.app.log)
+        except SaveError as e:
+            messagebox.showerror("Save Error",
+                                 f"Could not save {e.filename}:\n{e.strerror}")
+            return
         self.on_save()
         self.destroy()
 
@@ -903,7 +924,12 @@ class FillMissingDialog(ctk.CTkToplevel):
                 portion_g=None, p=0, f=0, c=0, kcal=0,
                 dt=dt, notes=t("fill.zeroed_notes"))
             self.app.log.append(entry)
-        save_log(self.app.log)
+        try:
+            save_log(self.app.log)
+        except SaveError as e:
+            messagebox.showerror("Save Error",
+                                 f"Could not save {e.filename}:\n{e.strerror}")
+            return
         self.idx = (len(self.missing_dates)
                     if self._apply_all.get() else self.idx + 1)
         self._load_day()
@@ -921,13 +947,23 @@ class FillMissingDialog(ctk.CTkToplevel):
         }
 
         def on_saved():
-            save_log(self.app.log)
+            try:
+                save_log(self.app.log)
+            except SaveError as e:
+                messagebox.showerror("Save Error",
+                                     f"Could not save {e.filename}:\n{e.strerror}")
+                return
             self.idx += 1
             self._load_day()
 
         EditEntryDialog(self, self.app, entry=pre_entry, on_save=on_saved)
 
     def _finish(self):
-        save_log(self.app.log)
+        try:
+            save_log(self.app.log)
+        except SaveError as e:
+            messagebox.showerror("Save Error",
+                                 f"Could not save {e.filename}:\n{e.strerror}")
+            return
         self.on_done()
         self.destroy()

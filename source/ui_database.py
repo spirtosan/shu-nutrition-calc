@@ -5,7 +5,7 @@
 
 import customtkinter as ctk
 from tkinter import messagebox, Listbox, SINGLE, END
-from models import save_db
+from models import save_db, SaveError
 from lang import t
 
 
@@ -172,7 +172,12 @@ class DatabaseFrame(ctk.CTkFrame):
             "kcal": round(p * 4 + f * 9 + c * 4, 1),
         }
         self.app.db.append(new_item)
-        save_db(self.app.db)
+        try:
+            save_db(self.app.db)
+        except SaveError as e:
+            messagebox.showerror("Save Error",
+                                 f"Could not save {e.filename}:\n{e.strerror}")
+            return
         self.refresh()
 
         for e in (self.in_n, self.in_p, self.in_f, self.in_c):
@@ -195,5 +200,10 @@ class DatabaseFrame(ctk.CTkFrame):
         if messagebox.askyesno(t("db.confirm_delete_title"),
                                t("db.confirm_delete_msg", name=name)):
             self.app.db = [i for i in self.app.db if i["name"] != name]
-            save_db(self.app.db)
+            try:
+                save_db(self.app.db)
+            except SaveError as e:
+                messagebox.showerror("Save Error",
+                                     f"Could not save {e.filename}:\n{e.strerror}")
+                return
             self.refresh()

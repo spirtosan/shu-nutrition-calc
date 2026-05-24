@@ -15,7 +15,7 @@ import webbrowser
 import os
 
 from config import APP_NAME, VERSION, CREATOR, YEAR, BASE_DIR, get_help_file, LOGO_SMALL, LOGO_LARGE
-from models import load_db, load_log, load_settings, save_settings
+from models import load_db, load_log, load_settings, save_settings, SaveError
 import lang as _lang
 from lang import t, SUPPORTED_LANGS
 
@@ -169,7 +169,12 @@ class ShuNutritionCalc(ctk.CTk):
         # Save preference
         settings = load_settings()
         settings["language"] = code
-        save_settings(settings)
+        try:
+            save_settings(settings)
+        except SaveError as e:
+            messagebox.showerror("Save Error",
+                                 f"Could not save {e.filename}:\n{e.strerror}")
+            return
         # Reload translations
         _lang.set_lang(BASE_DIR, code)
         # Rebuild entire UI with new language
