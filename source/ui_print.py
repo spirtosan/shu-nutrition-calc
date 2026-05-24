@@ -5,9 +5,22 @@
 # =============================================================================
 
 import os
+import atexit
+import threading
 import webbrowser
 import tempfile
 from datetime import datetime
+
+_temp_files = []
+_cleanup_registered = False
+
+
+def _cleanup_temps():
+    for p in _temp_files:
+        try:
+            os.unlink(p)
+        except OSError:
+            pass
 
 import customtkinter as ctk
 from tkinter import messagebox
@@ -194,10 +207,23 @@ class PrintDialog(ctk.CTkToplevel):
                                  t("print.err_msg", err=ex))
             return
 
+        global _cleanup_registered
         fd, path = tempfile.mkstemp(suffix=".html", prefix="ShuNutrition_")
         os.close(fd)
         with open(path, "w", encoding="utf-8") as fh:
             fh.write(html)
+
+        _temp_files.append(path)
+        if not _cleanup_registered:
+            atexit.register(_cleanup_temps)
+            _cleanup_registered = True
+
+        def _delete_later(p):
+            try:
+                os.unlink(p)
+            except OSError:
+                pass
+        threading.Timer(45, _delete_later, args=(path,)).start()
 
         webbrowser.open(f"file:///{path.replace(os.sep, '/')}")
         self.destroy()
